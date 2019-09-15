@@ -4,30 +4,30 @@
   <head>
     <meta charset="utf-8">
 
-    <link rel="stylesheet" href="OnsenUI/css/onsenui.css">
-    <link rel="stylesheet" href="OnsenUI/onsen-css-components-blue-basic-theme.css">
-    <link rel="stylesheet" href="login.css">
-
-    <script src="OnsenUI/js/onsenui.js"></script>
+    <link rel="stylesheet" href="lib/OnsenUI/css/onsenui.css">
+    <link rel="stylesheet" href="lib/OnsenUI/onsen-css-components.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="/lib/OnsenUI/js/onsenui.js"></script>
   </head>
-  <body>
-    <ons-page>
+  <body id='body'>
+    <ons-page id='pagelogin'>
       <ons-toolbar>
-        <div class="center">Log In</div>
-        <div class="right"><ons-toolbar-button>Close</ons-toolbar-button></div>
+        <div class="center bar">Log In</div>
       </ons-toolbar>
 
-      <div class="login-form">
+      <div class="login-form form">
 
         <input type="email" class="text-input--underbar" placeholder="Email" value="">
         <input type="password" class="text-input--underbar" placeholder="Password" value="">
         <br><br>
-        <ons-button modifier="large" class="login-button">Log In</ons-button>
+        <ons-button modifier="large" class="login-button" id="signed">Log In</ons-button>
         <br><br>
-        <ons-button modifier="quiet" class="forgot-password">Forgot password?</ons-button>
+        <ons-button modifier="quiet" class="sign-up" id="sign-upbtn">Have no ? Sign up here!</ons-button>
       </div>
 
     </ons-page>
-
+    
+      <script src="lib/Jquery/jquery.js"></script>
+      <script src="login.js"></script>
   </body>
 </html>
