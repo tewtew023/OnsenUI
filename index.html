@@ -42,7 +42,7 @@
       <div class="login-form form">
 
         <input type="email" class="text-input--underbar" placeholder="Email">
-        <input type="password" class="text-input--underbar" placeholder="Password" >
+        <input type="password" class="text-input--underbar" placeholder="Password">
         <br><br>
         <ons-button modifier="large" class="login-button" id="signed" onclick="openHome()">Log In</ons-button>
         <br><br>
@@ -153,7 +153,6 @@
   </template>
 
 
-  <!--  The Splitter Page -->
 
   <template id="home_splitter.html">
     <ons-page id="home_splitter">
@@ -164,12 +163,6 @@
   </template>
 
 
-  <!--  The Splitter Menu -->
-
-
-
-
-  <!--  The Home Page -->
 
   <template id="home.html">
     <ons-page id="home">
@@ -331,8 +324,6 @@
   </template>
 
 
-  <!--  The Movie Detail Page -->
-
   <template id="food_details.html">
     <ons-page id="food_details">
       <ons-toolbar>
@@ -379,16 +370,12 @@
           <ons-col>Phuket</ons-col>
         </ons-row>
         <div class="food_synopsis">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae malesuada purus. Aliquam varius diam lacus,
-          ut bibendum dolor condimentum eget. Morbi egestas eu elit at viverra. Pellentesque fringilla, turpis vel
-          facilisis interdum, sapien neque lobortis ligula, tempor pretium eros sem ac enim. Morbi quis facilisis magna.
-          Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras aliquet arcu sed
-          velit mattis, ut dictum nisl iaculis. Suspendisse sem orci, semper eget lectus non, tristique hendrerit dolor.
-          Vestibulum pretium odio sit amet purus malesuada, semper blandit lacus elementum</div>
+          ข้าวไก่เชสเตอ'ส์ ซอสน้ำปลา พร้อม ข้าวหมูนุ่มซอสน้ำปลา ที่หนึ่งแห่งควาอร่อย ราคาคุ้มค่า พลาดไปมีเสียใจ
+          ในราคาแน่ 170 บาท เท่านั้น งานนี้พลาดไม่ได้แล้ว เชสเตอ'ส์ ชื่อนี้มีแต่ความอร่อย
+          กดสั่งเลย ! </div>
 
         <ons-row class="food_extra_buttons">
           <ons-button modifier="large" style="background-color: green" onclick="openPayment()">
-            <ons-icon icon="fa-money"></ons-icon>
             <div>Buy</div>
           </ons-button>
 
@@ -547,8 +534,8 @@
         </div>
 
         <ons-row>
-          <ons-button modifier="large" style="background-color: green" onclick="ons.notification.toast(' Your Food will be arrive soon. Thank you!', { timeout: 1000, animation: 'fall' })"">
-            <ons-icon icon="fa-money"></ons-icon>
+          <ons-button modifier="large" style="background-color: green"
+            onclick="ons.notification.toast(' Your Food will be arrive soon. Thank you!', { timeout: 1000, animation: 'fall' })"">
             <div>Confirm this purchase</div>
           </ons-button>
         </ons-row>

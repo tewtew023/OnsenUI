@@ -5,7 +5,7 @@
     margin: 60px auto 0;
   }
   
-  input[type=Semail],input[type=email], input[type=password],input[type=tel],input[type=Fname],input[type=con-password]{
+  input[type=email], input[type=password],input[type=tel],input[type=Fname],input[type=con-password]{
     display: block;
     width: 100%;
     margin: 0 auto;
