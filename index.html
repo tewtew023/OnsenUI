@@ -2,443 +2,531 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 
-    <link rel="stylesheet" href="lib/OnsenUI/css/onsenui.css">
-    <link rel="stylesheet" href="lib/OnsenUI/onsen-css-components.css">
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="lib/OnsenUI/css/onsenui.css">
+  <link rel="stylesheet" href="lib/OnsenUI/onsen-css-components.css">
+  <link rel="stylesheet" href="style.css">
 
-    <script src="/lib/OnsenUI/js/onsenui.js"></script>
+  <script src="/lib/OnsenUI/js/onsenui.js"></script>
 </head>
 
 <body id='body'>
-    <ons-navigator swipeable id="myNavigator" page="page1.html"></ons-navigator>
+  <ons-navigator swipeable id="myNavigator" page="page1.html"></ons-navigator>
 
-    <template id="page1.html">
-        <ons-page id="page1" class="page">
-            <ons-toolbar class="toolbar" style="background-color: green">
-                <div class="center bar">Fruit Fit</div>
-                <div class="right">
-                    <ons-button modifier="quiet" class=" bar" id='loginbtn'>Login</ons-button>
-                </div>
-            </ons-toolbar>
+  <template id="pagelogin.html">
+    <ons-page id='pagelogin'>
+      <ons-toolbar>
+        <div class="center bar">Log In</div>
+      </ons-toolbar>
 
-                <div style="margin: 20px auto 5px; text-align: center; color:peru; -webkit-text-stroke-width: medium">Hungry? Take some food !</div>
-            
-                <ons-row class="user_cover">
-                  <ons-col onclick="openHome()">
-                    <div class="user_thumbnail" style="background-color: #dd6218"><ons-icon icon="fa-hamburger"></ons-icon></div>
-                    <div class="username" id="user_2_name">Fast Food</div>
-                  </ons-col>
-                  <ons-col onclick="openHome()">
-                    <div class="user_thumbnail" style="background-color: #00a899"><ons-icon icon="fa-pizza-slice"></ons-icon></div>
-                    <div class="username" id="user_2_name">Italain</div>
-                  </ons-col>
-                </ons-row>
-                <ons-row class="user_cover">
-                  <ons-col onclick="openHome()">
-                    <div class="user_thumbnail" style="background-color: #e3aa05"><ons-icon icon="fa-pepper-hot"></ons-icon></div>
-                    <div class="username" id="user_2_name">Chinese</div>
-                  </ons-col>
-                  <ons-col onclick="openHome()">
-                    <div class="user_thumbnail" style="background-color: #94b052"><ons-icon icon="fa-lemon"></ons-icon></div>
-                    <div class="username" id="username_4">Fruit</div>
-                  </ons-col>
-                </ons-row>
-                <ons-row class="user_cover">
-                </ons-row>
-            
-                <style type="text/css">
-                  .user_cover {
-                    padding: 0px 40px;
-                    margin: 20px 0px;
-                  }
-            
-                  .username {
-                    text-align: center;
-                    color: white;
-                    width: 100%;
-                    font-size: 12px;
-                    margin-top: 5px;
-                  }
-            
-                  .user_thumbnail {
-                    width: 100px;
-                    height: 100px;
-                    display: table;
-                    text-align: center;
-                    margin: auto;
-                  }
-            
-                  .user_thumbnail ons-icon {
-                    font-size: 70px;
-                    display: table-cell;
-                    vertical-align: middle;
-                  }
-                </style>
-              </ons-page>
-            </template>
-            
-            
-            <!--  The Splitter Page -->
-            
-            <template id="home_splitter.html">
-              <ons-page id="home_splitter">
-                <ons-splitter>
-                  <ons-splitter-side id="menu" page="menu.html" side="left" width="220px" collapse swipeable></ons-splitter-side>
-                  <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
-                </ons-splitter>
-              </ons-page>
-            </template>
-            
-            
-            <!--  The Splitter Menu -->
-            
-            
-            
-            
-            <!--  The Home Page -->
-            
-            <template id="home.html">
-              <ons-page id="home">
-                <ons-toolbar>
-                  <div class="left"><ons-toolbar-button id="menu_button"><ons-icon icon="fa-bars"></ons-icon></ons-toolbar-button></div>
-                  <div class="center" style="color: red">Fruit</div>
-                  <div class="right">
-                    <ons-toolbar-button><ons-icon icon="fa-search"></ons-icon></ons-toolbar-button>
-                    <ons-if platform="android"><ons-toolbar-button><ons-icon icon="ion-android-more-vertical"></ons-icon></ons-toolbar-button></ons-if>
-                  </div>
-                </ons-toolbar>
-            
-            
-                <ons-carousel class="carousel" swipeable auto-scroll id="carousel">
-                  <ons-carousel-item>
-                    <img src="img/apple-benefits_620x350_51507721694.png" />
-                  </ons-carousel-item>
-                  <ons-carousel-item>
-                    <img src="img/grape.jpg" />
-                  </ons-carousel-item>
-                  <ons-carousel-item>
-                    <img src="img/orange.jpg" />
-                  </ons-carousel-item>
-                </ons-carousel>
-                <div class="cover-label center">
-                  <ul>
-                    <li><div id="dot0" class="circle circle_current">&#x25cf;</div></li>
-                    <li><div id="dot1" class="circle">&#x25cf;</div></li>
-                    <li><div id="dot2" class="circle">&#x25cf;</div></li>
-                  </ul>
-                </div>
-            
-                <div class="movie_list">
-                  Apples
-                  <ons-carousel auto-refresh swipeable overscrollable item-width="110px">
-                    <ons-carousel-item modifier="nodivider" id="Movie 1" onclick="openMovieDetails(this.id)">
-                      <img src="img/apple-benefits_620x350_51507721694.png">
-                    </ons-carousel-item>
-                    <ons-carousel-item modifier="nodivider" id="Movie 2" onclick="openMovieDetails(this.id)">
-                      <img src="img/How-to-Grow-Apple-Trees-at-Home.jpg">
-                    </ons-carousel-item>
-                    <ons-carousel-item modifier="nodivider" id="Movie 3" onclick="openMovieDetails(this.id)">
-                      <img src="img/appl2.jpg">
-                    </ons-carousel-item>
-                    <ons-carousel-item modifier="nodivider" id="Movie 4" onclick="openMovieDetails(this.id)">
-                      <img src="img/apple3.jpg">
-                    </ons-carousel-item>
-                    <ons-carousel-item modifier="nodivider" id="Movie 5" onclick="openMovieDetails(this.id)">
-                      <img src="img/apple4.jpg">
-                    </ons-carousel-item>
-                  </ons-carousel>
-                </div>
-            
-                <div class="movie_list">
-                  Top Picks For You
-                  <ons-carousel auto-refresh swipeable overscrollable item-width="110px">
-                    <ons-carousel-item modifier="nodivider" id="Top Movie 1" onclick="openMovieDetails(this.id)">
-                      <img src="assets/img/movie_cover_template.jpg">
-                    </ons-carousel-item>
-                    <ons-carousel-item modifier="nodivider" id="Top Movie 2" onclick="openMovieDetails(this.id)">
-                      <img src="assets/img/movie_cover_template.jpg">
-                    </ons-carousel-item>
-                    <ons-carousel-item modifier="nodivider" id="Top Movie 3" onclick="openMovieDetails(this.id)">
-                      <img src="assets/img/movie_cover_template.jpg">
-                    </ons-carousel-item>
-                    <ons-carousel-item modifier="nodivider" id="Top Movie 4" onclick="openMovieDetails(this.id)">
-                      <img src="assets/img/movie_cover_template.jpg">
-                    </ons-carousel-item>
-                    <ons-carousel-item modifier="nodivider" id="Top Movie 5" onclick="openMovieDetails(this.id)">
-                      <img src="assets/img/movie_cover_template.jpg">
-                    </ons-carousel-item>
-                  </ons-carousel>
-                </div>
-            
-                <div class="movie_list">
-                  Recently Added
-                   <ons-carousel auto-refresh swipeable overscrollable item-width="110px">
-                    <ons-carousel-item modifier="nodivider" id="Recent Movie 1" class="movie_cover" onclick="openMovieDetails(this.id)">
-                      <img src="assets/img/movie_cover_template.jpg">
-                    </ons-carousel-item>
-                    <ons-carousel-item modifier="nodivider" id="Recent Movie 2" class="movie_cover" onclick="openMovieDetails(this.id)">
-                      <img src="assets/img/movie_cover_template.jpg">
-                    </ons-carousel-item>
-                    <ons-carousel-item modifier="nodivider" id="Recent Movie 3" class="movie_cover" onclick="openMovieDetails(this.id)">
-                      <img src="assets/img/movie_cover_template.jpg">
-                    </ons-carousel-item>
-                    <ons-carousel-item modifier="nodivider" id="Recent Movie 4" class="movie_cover" onclick="openMovieDetails(this.id)">
-                      <img src="assets/img/movie_cover_template.jpg">
-                    </ons-carousel-item>
-                    <ons-carousel-item modifier="nodivider" id="Recent Movie 5" class="movie_cover" onclick="openMovieDetails(this.id)">
-                      <img src="assets/img/movie_cover_template.jpg">
-                    </ons-carousel-item>
-                  </ons-carousel>
-                </div>
-            
-                <style type="text/css">
-                  .carousel ons-carousel-item img {
-                    width: 100%;
-                    max-height: 190px
-                  }
-            
-                  .cover-label {
-                    text-align: center;
-                    cursor: default;
-                  }
-            
-                  ul {
-                    list-style: none;
-                    padding: 0;
-                  }
-            
-                  ul li {
-                    display: inline;
-                    margin-right: 5px;
-                  }
-            
-                  .circle {
-                    font-size: 15px;
-                    display: table-cell;
-                    color: #999;
-                   }
-            
-                  .circle_current {
-                    color: white;
-                  }
-            
-                  .movie_list {
-                    margin: 10px;
-                    height: 130px;
-                    padding-top: 30px;
-                  }
-            
-                  .movie_list img {
-                    width: 90%;
-                  }
-                </style>
-              </ons-page>
-            </template>
-            
-            
-            <!--  The Movie Detail Page -->
-            
-            <template id="movie_details.html">
-              <ons-page id="movie_details">
-                <ons-toolbar class="trailer_toolbar" modifier="transparent" inline>
-                  <div class="left">
-                    <ons-if platform="android"><ons-back-button>Back</ons-back-button></ons-if>
-                  </div>
-                  <div class="right">
-                    <ons-if platform="android">
-                      <ons-toolbar-button><ons-icon icon="md-cast"></ons-icon></ons-toolbar-button>
-                      <ons-toolbar-button><ons-icon icon="md-share"></ons-icon></ons-toolbar-button>
-                      <ons-toolbar-button><ons-icon icon="fa-search"></ons-icon></ons-toolbar-button>
-                    </ons-if>
-                    <ons-if platform="ios">
-                      <ons-toolbar-button onclick="goBack()"><ons-icon style="opacity: 0.7; color: black" icon="ion-ios-close"></ons-icon></ons-toolbar-button>
-                    </ons-if>
-                  </div>
-                </ons-toolbar>
-            
-                <div class="trailer">
-                  <ons-icon icon="fa-play-circle"></ons-icon>
-                  <img src="assets/img/onsenui-roadmap.jpg">
-                </div>
-            
-                <div class="movie_info">
-                  <h2 id="movie_title"></h2>
-                  <ons-row class="movie_general_info">
-                    <ons-col class="stars">
-                      <ons-icon style="color: red" icon="fa-star"></ons-icon>
-                      <ons-icon style="color: red" icon="fa-star"></ons-icon>
-                      <ons-icon style="color: red" icon="fa-star"></ons-icon>
-                      <ons-icon style="color: red" icon="fa-star"></ons-icon>
-                      <ons-icon style="color: gray" icon="fa-star"></ons-icon>
-                    </ons-col>
-                    <ons-col>2016</ons-col>
-                    <ons-col>TV-14</ons-col>
-                    <ons-col>2h 0m</ons-col>
-                  </ons-row>
-                  <div class="movie_synopsis">When the protagonist was a child, he dreamed of becoming a hero of a story that everyone will know. As he aged, he realized his dreams are just that - dreams and nothing more. But never did he expect that when he turned 21 years old, the unexpected would have happened and that the story he was longing for will start to unfold.</div>
-                  <div class="movie_cast">
-                    Cast: Actor 1, Actress 1, Actor 2, Actress 2 <br/>
-                    Director: Popular Director
-                  </div>
-                  <ons-row class="movie_extra_buttons">
-                    <ons-col>
-                      <ons-button modifier="quiet">
-                        <ons-icon icon="ion-plus-round"></ons-icon>
-                        <div>My List</div>
-                      </ons-button>
-                    </ons-col>
-                    <ons-col>
-                      <ons-if platform="ios">
-                        <ons-button modifier="quiet">
-                          <ons-icon icon="ion-ios-upload-outline"></ons-icon>
-                          <div>Share</div>
-                        </ons-button>
-                      </ons-if>
-                    </ons-col>
-                  </ons-row>
-                </div>
-            
-                <div class="movie_list">
-                  Similar Movies
-                  <ons-carousel auto-refresh swipeable overscrollable item-width="110px">
-                    <ons-carousel-item modifier="nodivider" id="Similar Movie 1" onclick="openMovieDetails(this.id)">
-                      <img src="assets/img/movie_cover_template.jpg">
-                    </ons-carousel-item>
-                    <ons-carousel-item modifier="nodivider" id="Similar Movie 2" onclick="openMovieDetails(this.id)">
-                      <img src="assets/img/movie_cover_template.jpg">
-                    </ons-carousel-item>
-                    <ons-carousel-item modifier="nodivider" id="Similar Movie 3" onclick="openMovieDetails(this.id)">
-                      <img src="assets/img/movie_cover_template.jpg">
-                    </ons-carousel-item>
-                  </ons-carousel>
-                </div>
-            
-                <style type="text/css">
-                  .trailer {
-                    height: 190px;
-                    position: relative;
-                  }
-            
-                  .trailer img {
-                    width: 100%;
-                    height: 100%
-                  }
-            
-                  .trailer ons-icon {
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    font-size: 50px;
-                    margin-top: -25px;
-                    margin-left: -25px;
-                    color: #666;
-                    background: white;
-                    width: 50px;
-                    text-align: center;
-                    border-radius: 50%;
-                    opacity: 0.7;
-                  }
-            
-                  .trailer ons-icon:active {
-                    opacity: 1;
-                  }
-            
-                  .trailer_toolbar {
-                    position: absolute;
-                  }
-            
-                  .movie_info {
-                    padding: 0px 10px;
-                    font-size: 14px;
-                  }
-            
-                  .movie_general_info {
-                    width: 250px;
-                    margin-bottom: 15px;
-                    color: gray;
-                  }
-            
-                  .movie_synopsis {
-                    text-align: justify;
-                    margin-bottom: 10px;
-                  }
-            
-                  .movie_cast {
-                    color: gray;
-                  }
-            
-                  .stars {
-                    white-space: nowrap;
-                    margin-right: 15px
-                  }
-            
-                  .movie_extra_buttons {
-                    margin-top: 20px;
-                    width: 50%;
-                  }
-            
-                  .movie_extra_buttons ons-icon {
-                    font-size: 25px;
-                  }
-            
-                  .movie_extra_buttons ons-button {
-                    text-align: center;
-                    color: white;
-                    font-size: 14px;
-                  }
-            
-                  .movie_extra_buttons ons-button:active {
-                    color: #96003c;
-                  }
-                </style>
-              </ons-page>
-            </template>
-            
-            <style type="text/css">
-              .page {
-                color: white;
-              }
-            
-              .page__background {
-                background-color: black;
-              }
-            
-              .toolbar:not(.toolbar--transparent) {
-                background-color: black;
-              }
-            
-              .toolbar-button {
-                color: white;
-              }
-            
-              .list-item {
-                color: white;
-              }
-            </style>
-    </template>
+      <div class="login-form form">
 
-    <template id="page2.html" class="page">
-        <ons-page id="page2">
-            <ons-toolbar>
-                <div class="left">
-                    <ons-back-button>Page 1</ons-back-button>
-                </div>
-                <div class="center"></div>
-            </ons-toolbar>
+        <input type="email" class="text-input--underbar" placeholder="Email" value="">
+        <input type="password" class="text-input--underbar" placeholder="Password" value="">
+        <br><br>
+        <ons-button modifier="large" class="login-button" id="signed" onclick="openHome()">Log In</ons-button>
+        <br><br>
+        <ons-button modifier="quiet" class="sign-up" onclick="openSignup()">Have no ? Sign up here!</ons-button>
+      </div>
+    </ons-page>
+  </template>
 
-            <p>This is the second page.</p>
-        </ons-page>
-    </template>
+<template id="pageRegister.html">
+  <ons-page id="pageRegister">
+      <ons-toolbar>
+        <div class="left"><ons-toolbar-button onclick="goBack()">Login</ons-toolbar-button></div>
+        <div class="center" style="color:azure ">Sign up</div>
+      </ons-toolbar>
+
+      <div class="sign-up-form form">
+
+        <input type="email" class="text-input--underbar" placeholder="Email" value="">
+        <input type="password" class="text-input--underbar" placeholder="Password" value="">
+        <input type="con-password" class="text-input--underbar" placeholder="Confirm Password" value="">
+         <br><br>
+        <input type="Fname" class="text-input--underbar" placeholder="First name" value="">
+        <input type="tel" class="text-input--underbar" placeholder="Phone" value="">
+        <br><br>
+        <ons-button modifier="large" class="sign-up-button" onclick="openHome()">Sign up</ons-button>
+        <br><br>
+      </div>
+
+    </ons-page>
+  </template>
 
 
-    <script src="lib/Jquery/jquery.js"></script>
-    <script src="index.js"></script>
-    <script src="login.js"></script>
+  <template id="page1.html">
+    <ons-page id="page1" class="page">
+      <ons-toolbar class="toolbar">
+        <div class="center bar">Fruit Fit</div>
+        <div class="right">
+          <ons-button modifier="quiet" class=" bar" onclick="openLogin()">Login</ons-button>
+        </div>
+      </ons-toolbar>
+
+      <div style="margin: 20px auto 5px; text-align: center; color:azure; -webkit-text-stroke-width: medium">Hungry? Take
+        some food !</div>
+
+      <ons-row class="user_cover">
+        <ons-col onclick="openLogin()">
+          <div class="user_thumbnail" style="background-color: #dd6218">
+            <ons-icon icon="fa-hamburger"></ons-icon>
+          </div>
+          <div class="username" id="user_2_name">Fast Food</div>
+        </ons-col>
+        <ons-col onclick="openLogin()">
+          <div class="user_thumbnail" style="background-color: #00a899">
+            <ons-icon icon="fa-pizza-slice"></ons-icon>
+          </div>
+          <div class="username" id="user_2_name">Italain</div>
+        </ons-col>
+      </ons-row>
+      <ons-row class="user_cover">
+        <ons-col onclick="openLogin()">
+          <div class="user_thumbnail" style="background-color: #e3aa05">
+            <ons-icon icon="fa-pepper-hot"></ons-icon>
+          </div>
+          <div class="username" id="user_2_name">Chinese</div>
+        </ons-col>
+        <ons-col onclick="openLogin()">
+          <div class="user_thumbnail" style="background-color: #94b052">
+            <ons-icon icon="fa-lemon"></ons-icon>
+          </div>
+          <div class="username" id="username_4">Fruit</div>
+        </ons-col>
+      </ons-row>
+      <ons-row class="user_cover">
+      </ons-row>
+
+      <style type="text/css">
+        .user_cover {
+          padding: 0px 40px;
+          margin: 20px 0px;
+        }
+
+        .username {
+          text-align: center;
+          color: white;
+          width: 100%;
+          font-size: 12px;
+          margin-top: 5px;
+        }
+
+        .user_thumbnail {
+          width: 100px;
+          height: 100px;
+          display: table;
+          text-align: center;
+          margin: auto;
+        }
+
+        .user_thumbnail ons-icon {
+          font-size: 70px;
+          display: table-cell;
+          vertical-align: middle;
+        }
+      </style>
+    </ons-page>
+  </template>
+
+
+  <!--  The Splitter Page -->
+
+  <template id="home_splitter.html">
+    <ons-page id="home_splitter">
+      <ons-splitter>
+        <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
+      </ons-splitter>
+    </ons-page>
+  </template>
+
+
+  <!--  The Splitter Menu -->
+
+
+
+
+  <!--  The Home Page -->
+
+  <template id="home.html">
+    <ons-page id="home">
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button>
+            <ons-icon icon="fa-chevron-left" id='backbtn' onclick="goBack()"></ons-icon>
+          </ons-toolbar-button>
+          <ons-if platform="android">
+            <ons-toolbar-button>
+              <ons-icon icon="ion-android-more-vertical"></ons-icon>
+            </ons-toolbar-button>
+          </ons-if>
+        </div>
+        <div class="center bar">Fast Food</div>
+        <div class="right">
+          <ons-toolbar-button>
+            <ons-icon icon="fa-search"></ons-icon>
+          </ons-toolbar-button>
+          <ons-if platform="android">
+            <ons-toolbar-button>
+              <ons-icon icon="ion-android-more-vertical"></ons-icon>
+            </ons-toolbar-button>
+          </ons-if>
+        </div>
+      </ons-toolbar>
+
+
+      <ons-carousel class="carousel" swipeable auto-scroll id="carousel">
+        <ons-carousel-item>
+          <img src="img/pro1.jpg" />
+        </ons-carousel-item>
+        <ons-carousel-item>
+          <img src="img/pro2.jpg" />
+        </ons-carousel-item>
+        <ons-carousel-item>
+          <img src="img/pro3.jpg" />
+        </ons-carousel-item>
+      </ons-carousel>
+      <div class="cover-label center">
+        <ul>
+          <li>
+            <div id="dot0" class="circle circle_current">&#x25cf;</div>
+          </li>
+          <li>
+            <div id="dot1" class="circle">&#x25cf;</div>
+          </li>
+          <li>
+            <div id="dot2" class="circle">&#x25cf;</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="movie_list">
+        Chicken wiht Rice menus
+        <ons-carousel auto-refresh swipeable overscrollable item-width="110px">
+          <ons-carousel-item modifier="nodivider" id="Movie 1" onclick="openMovieDetails(this.id)">
+            <img src="img/chickrice.jpg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="Movie 2" onclick="openMovieDetails(this.id)">
+            <img src="img/chickrice1.jpg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="Movie 3" onclick="openMovieDetails(this.id)">
+            <img src="img/chickrice2.jpg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="Movie 4" onclick="openMovieDetails(this.id)">
+            <img src="img/chickrice3.jpg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="Movie 5" onclick="openMovieDetails(this.id)">
+            <img src="img/chickrice4.jpg">
+          </ons-carousel-item>
+        </ons-carousel>
+      </div>
+
+      <div class="movie_list">
+        Only chicken
+        <ons-carousel auto-refresh swipeable overscrollable item-width="110px">
+          <ons-carousel-item modifier="nodivider" id="Top Movie 1" onclick="openMovieDetails(this.id)">
+            <img src="img/chick.jpg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="Top Movie 2" onclick="openMovieDetails(this.id)">
+            <img src="img/chick1.jpg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="Top Movie 3" onclick="openMovieDetails(this.id)">
+            <img src="img/chick2.jpg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="Top Movie 4" onclick="openMovieDetails(this.id)">
+            <img src="img/chick3.jpg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="Top Movie 5" onclick="openMovieDetails(this.id)">
+            <img src="img/chickrice5.jpg">
+          </ons-carousel-item>
+        </ons-carousel>
+      </div>
+
+      <div class="movie_list">
+        Recently Added
+        <ons-carousel auto-refresh swipeable overscrollable item-width="110px">
+          <ons-carousel-item modifier="nodivider" id="Recent Movie 1" class="movie_cover"
+            onclick="openMovieDetails(this.id)">
+            <img src="assets/img/movie_cover_template.jpg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="Recent Movie 2" class="movie_cover"
+            onclick="openMovieDetails(this.id)">
+            <img src="assets/img/movie_cover_template.jpg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="Recent Movie 3" class="movie_cover"
+            onclick="openMovieDetails(this.id)">
+            <img src="assets/img/movie_cover_template.jpg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="Recent Movie 4" class="movie_cover"
+            onclick="openMovieDetails(this.id)">
+            <img src="assets/img/movie_cover_template.jpg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="Recent Movie 5" class="movie_cover"
+            onclick="openMovieDetails(this.id)">
+            <img src="assets/img/movie_cover_template.jpg">
+          </ons-carousel-item>
+        </ons-carousel>
+      </div>
+
+      <style type="text/css">
+        .carousel ons-carousel-item img {
+          width: 100%;
+          max-height: 190px
+        }
+
+        .cover-label {
+          text-align: center;
+          cursor: default;
+        }
+
+        ul {
+          list-style: none;
+          padding: 0;
+        }
+
+        ul li {
+          display: inline;
+          margin-right: 5px;
+        }
+
+        .circle {
+          font-size: 15px;
+          display: table-cell;
+          color: #999;
+        }
+
+        .circle_current {
+          color: white;
+        }
+
+        .movie_list {
+          margin: 10px;
+          height: 130px;
+          padding-top: 30px;
+        }
+
+        .movie_list img {
+          width: 90%;
+        }
+      </style>
+    </ons-page>
+  </template>
+
+
+  <!--  The Movie Detail Page -->
+
+  <template id="movie_details.html">
+    <ons-page id="movie_details">
+      <ons-toolbar class="trailer_toolbar" modifier="transparent" inline>
+        <div class="left">
+          <ons-if platform="android">
+            <ons-back-button>Back</ons-back-button>
+          </ons-if>
+        </div>
+        <div class="right">
+          <ons-if platform="android">
+            <ons-toolbar-button>
+              <ons-icon icon="md-cast"></ons-icon>
+            </ons-toolbar-button>
+            <ons-toolbar-button>
+              <ons-icon icon="md-share"></ons-icon>
+            </ons-toolbar-button>
+            <ons-toolbar-button>
+              <ons-icon icon="fa-search"></ons-icon>
+            </ons-toolbar-button>
+          </ons-if>
+          <ons-if platform="ios">
+            <ons-toolbar-button onclick="goBack()">
+              <ons-icon style="opacity: 0.7; color: black" icon="ion-ios-close"></ons-icon>
+            </ons-toolbar-button>
+          </ons-if>
+        </div>
+      </ons-toolbar>
+
+      <div class="trailer">
+        <ons-icon icon="fa-play-circle"></ons-icon>
+        <img src="assets/img/onsenui-roadmap.jpg">
+      </div>
+
+      <div class="movie_info">
+        <h2 id="movie_title"></h2>
+        <ons-row class="movie_general_info">
+          <ons-col class="stars">
+            <ons-icon style="color: red" icon="fa-star"></ons-icon>
+            <ons-icon style="color: red" icon="fa-star"></ons-icon>
+            <ons-icon style="color: red" icon="fa-star"></ons-icon>
+            <ons-icon style="color: red" icon="fa-star"></ons-icon>
+            <ons-icon style="color: gray" icon="fa-star"></ons-icon>
+          </ons-col>
+          <ons-col>2016</ons-col>
+          <ons-col>TV-14</ons-col>
+          <ons-col>2h 0m</ons-col>
+        </ons-row>
+        <div class="movie_synopsis">When the protagonist was a child, he dreamed of becoming a hero of a story that
+          everyone will know. As he aged, he realized his dreams are just that - dreams and nothing more. But never did
+          he expect that when he turned 21 years old, the unexpected would have happened and that the story he was
+          longing for will start to unfold.</div>
+        <div class="movie_cast">
+          Cast: Actor 1, Actress 1, Actor 2, Actress 2 <br />
+          Director: Popular Director
+        </div>
+        <ons-row class="movie_extra_buttons">
+          <ons-col>
+            <ons-button modifier="quiet">
+              <ons-icon icon="ion-plus-round"></ons-icon>
+              <div>My List</div>
+            </ons-button>
+          </ons-col>
+          <ons-col>
+            <ons-if platform="ios">
+              <ons-button modifier="quiet">
+                <ons-icon icon="ion-ios-upload-outline"></ons-icon>
+                <div>Share</div>
+              </ons-button>
+            </ons-if>
+          </ons-col>
+        </ons-row>
+      </div>
+
+      <div class="movie_list">
+        Similar Movies
+        <ons-carousel auto-refresh swipeable overscrollable item-width="110px">
+          <ons-carousel-item modifier="nodivider" id="Similar Movie 1" onclick="openMovieDetails(this.id)">
+            <img src="assets/img/movie_cover_template.jpg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="Similar Movie 2" onclick="openMovieDetails(this.id)">
+            <img src="assets/img/movie_cover_template.jpg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="Similar Movie 3" onclick="openMovieDetails(this.id)">
+            <img src="assets/img/movie_cover_template.jpg">
+          </ons-carousel-item>
+        </ons-carousel>
+      </div>
+
+      <style type="text/css">
+        .trailer {
+          height: 190px;
+          position: relative;
+        }
+
+        .trailer img {
+          width: 100%;
+          height: 100%
+        }
+
+        .trailer ons-icon {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          font-size: 50px;
+          margin-top: -25px;
+          margin-left: -25px;
+          color: #666;
+          background: white;
+          width: 50px;
+          text-align: center;
+          border-radius: 50%;
+          opacity: 0.7;
+        }
+
+        .trailer ons-icon:active {
+          opacity: 1;
+        }
+
+        .trailer_toolbar {
+          position: absolute;
+        }
+
+        .movie_info {
+          padding: 0px 10px;
+          font-size: 14px;
+        }
+
+        .movie_general_info {
+          width: 250px;
+          margin-bottom: 15px;
+          color: gray;
+        }
+
+        .movie_synopsis {
+          text-align: justify;
+          margin-bottom: 10px;
+        }
+
+        .movie_cast {
+          color: gray;
+        }
+
+        .stars {
+          white-space: nowrap;
+          margin-right: 15px
+        }
+
+        .movie_extra_buttons {
+          margin-top: 20px;
+          width: 50%;
+        }
+
+        .movie_extra_buttons ons-icon {
+          font-size: 25px;
+        }
+
+        .movie_extra_buttons ons-button {
+          text-align: center;
+          color: white;
+          font-size: 14px;
+        }
+
+        .movie_extra_buttons ons-button:active {
+          color: #96003c;
+        }
+      </style>
+    </ons-page>
+  </template>
+
+  <style type="text/css">
+    .page {
+      color: white;
+    }
+
+    .page__background {
+      background-color: black;
+    }
+
+    .toolbar:not(.toolbar--transparent) {
+      background-color: black;
+    }
+
+    .toolbar-button {
+      color: white;
+    }
+
+    .list-item {
+      color: white;
+    }
+  </style>
+  </template>
+
+  <template id="page2.html" class="page">
+    <ons-page id="page2">
+      <ons-toolbar>
+        <div class="left">
+          <ons-back-button>Page 1</ons-back-button>
+        </div>
+        <div class="center"></div>
+      </ons-toolbar>
+
+      <p>This is the second page.</p>
+    </ons-page>
+  </template>
+
+
+  <script src="lib/Jquery/jquery.js"></script>
+  <script src="index.js"></script>
 
 </body>
 
