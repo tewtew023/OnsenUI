@@ -20,13 +20,29 @@
   <template id="pagelogin.html">
     <ons-page id='pagelogin'>
       <ons-toolbar>
-        <div class="center bar">Log In</div>
+        <div class="left">
+          <ons-if platform="android">
+            <ons-back-button onclick="goBack()">Back</ons-back-button>
+          </ons-if>
+        </div>
+        <div class="center bar">
+          Login
+        </div>
+        <div class="right">
+          <ons-if platform="android">
+          </ons-if>
+          <ons-if platform="ios">
+            <ons-toolbar-button onclick="goBack()">
+              <ons-icon style="opacity: 0.7; color: black" icon="ion-ios-close"></ons-icon>
+            </ons-toolbar-button>
+          </ons-if>
+        </div>
       </ons-toolbar>
 
       <div class="login-form form">
 
-        <input type="email" class="text-input--underbar" placeholder="Email" value="">
-        <input type="password" class="text-input--underbar" placeholder="Password" value="">
+        <input type="email" class="text-input--underbar" placeholder="Email">
+        <input type="password" class="text-input--underbar" placeholder="Password" >
         <br><br>
         <ons-button modifier="large" class="login-button" id="signed" onclick="openHome()">Log In</ons-button>
         <br><br>
@@ -35,21 +51,23 @@
     </ons-page>
   </template>
 
-<template id="pageRegister.html">
-  <ons-page id="pageRegister">
+  <template id="pageRegister.html">
+    <ons-page id="pageRegister">
       <ons-toolbar>
-        <div class="left"><ons-toolbar-button onclick="goBack()">Login</ons-toolbar-button></div>
+        <div class="left">
+          <ons-toolbar-button onclick="goBack()">Login</ons-toolbar-button>
+        </div>
         <div class="center" style="color:azure ">Sign up</div>
       </ons-toolbar>
 
       <div class="sign-up-form form">
 
-        <input type="email" class="text-input--underbar" placeholder="Email" value="">
-        <input type="password" class="text-input--underbar" placeholder="Password" value="">
-        <input type="con-password" class="text-input--underbar" placeholder="Confirm Password" value="">
-         <br><br>
-        <input type="Fname" class="text-input--underbar" placeholder="First name" value="">
-        <input type="tel" class="text-input--underbar" placeholder="Phone" value="">
+        <input type="email" class="text-input--underbar" placeholder="Email" style="color: blanchedalmond">
+        <input type="password" class="text-input--underbar" placeholder="Password">
+        <input type="con-password" class="text-input--underbar" placeholder="Confirm Password">
+        <br><br>
+        <input type="Fname" class="text-input--underbar" placeholder="First name">
+        <input type="tel" class="text-input--underbar" placeholder="Phone">
         <br><br>
         <ons-button modifier="large" class="sign-up-button" onclick="openHome()">Sign up</ons-button>
         <br><br>
@@ -68,7 +86,8 @@
         </div>
       </ons-toolbar>
 
-      <div style="margin: 20px auto 5px; text-align: center; color:azure; -webkit-text-stroke-width: medium">Hungry? Take
+      <div style="margin: 20px auto 5px; text-align: center; color:azure; -webkit-text-stroke-width: medium">Hungry?
+        Take
         some food !</div>
 
       <ons-row class="user_cover">
@@ -76,13 +95,13 @@
           <div class="user_thumbnail" style="background-color: #dd6218">
             <ons-icon icon="fa-hamburger"></ons-icon>
           </div>
-          <div class="username" id="user_2_name">Fast Food</div>
+          <div class="username">Chester's ground 1146</div>
         </ons-col>
         <ons-col onclick="openLogin()">
           <div class="user_thumbnail" style="background-color: #00a899">
             <ons-icon icon="fa-pizza-slice"></ons-icon>
           </div>
-          <div class="username" id="user_2_name">Italain</div>
+          <div class="username">Pizza hot 1151</div>
         </ons-col>
       </ons-row>
       <ons-row class="user_cover">
@@ -90,13 +109,13 @@
           <div class="user_thumbnail" style="background-color: #e3aa05">
             <ons-icon icon="fa-pepper-hot"></ons-icon>
           </div>
-          <div class="username" id="user_2_name">Chinese</div>
+          <div class="username">Mha-la kai RT.</div>
         </ons-col>
         <ons-col onclick="openLogin()">
           <div class="user_thumbnail" style="background-color: #94b052">
             <ons-icon icon="fa-lemon"></ons-icon>
           </div>
-          <div class="username" id="username_4">Fruit</div>
+          <div class="username">Pol la mai shop</div>
         </ons-col>
       </ons-row>
       <ons-row class="user_cover">
@@ -204,70 +223,65 @@
         </ul>
       </div>
 
-      <div class="movie_list">
+      <div class="food_list">
         Chicken wiht Rice menus
         <ons-carousel auto-refresh swipeable overscrollable item-width="110px">
-          <ons-carousel-item modifier="nodivider" id="Movie 1" onclick="openMovieDetails(this.id)">
+          <ons-carousel-item modifier="nodivider" onclick="openFoodDetails()">
             <img src="img/chickrice.jpg">
           </ons-carousel-item>
-          <ons-carousel-item modifier="nodivider" id="Movie 2" onclick="openMovieDetails(this.id)">
+          <ons-carousel-item modifier="nodivider" onclick="openFoodDetails()">
             <img src="img/chickrice1.jpg">
           </ons-carousel-item>
-          <ons-carousel-item modifier="nodivider" id="Movie 3" onclick="openMovieDetails(this.id)">
+          <ons-carousel-item modifier="nodivider" onclick="openFoodDetails()">
             <img src="img/chickrice2.jpg">
           </ons-carousel-item>
-          <ons-carousel-item modifier="nodivider" id="Movie 4" onclick="openMovieDetails(this.id)">
+          <ons-carousel-item modifier="nodivider" onclick="openFoodDetails()">
             <img src="img/chickrice3.jpg">
           </ons-carousel-item>
-          <ons-carousel-item modifier="nodivider" id="Movie 5" onclick="openMovieDetails(this.id)">
+          <ons-carousel-item modifier="nodivider" onclick="openFoodDetails()">
             <img src="img/chickrice4.jpg">
           </ons-carousel-item>
         </ons-carousel>
       </div>
 
-      <div class="movie_list">
+      <div class="food_list">
         Only chicken
         <ons-carousel auto-refresh swipeable overscrollable item-width="110px">
-          <ons-carousel-item modifier="nodivider" id="Top Movie 1" onclick="openMovieDetails(this.id)">
+          <ons-carousel-item modifier="nodivider" onclick="openFoodDetails()">
             <img src="img/chick.jpg">
           </ons-carousel-item>
-          <ons-carousel-item modifier="nodivider" id="Top Movie 2" onclick="openMovieDetails(this.id)">
+          <ons-carousel-item modifier="nodivider" onclick="openFoodDetails()">
             <img src="img/chick1.jpg">
           </ons-carousel-item>
-          <ons-carousel-item modifier="nodivider" id="Top Movie 3" onclick="openMovieDetails(this.id)">
+          <ons-carousel-item modifier="nodivider" onclick="openFoodDetails()">
             <img src="img/chick2.jpg">
           </ons-carousel-item>
-          <ons-carousel-item modifier="nodivider" id="Top Movie 4" onclick="openMovieDetails(this.id)">
+          <ons-carousel-item modifier="nodivider" onclick="openFoodDetails()">
             <img src="img/chick3.jpg">
           </ons-carousel-item>
-          <ons-carousel-item modifier="nodivider" id="Top Movie 5" onclick="openMovieDetails(this.id)">
+          <ons-carousel-item modifier="nodivider" onclick="openFoodDetails()">
             <img src="img/chickrice5.jpg">
           </ons-carousel-item>
         </ons-carousel>
       </div>
 
-      <div class="movie_list">
-        Recently Added
+      <div class="food_list">
+        Hamburger
         <ons-carousel auto-refresh swipeable overscrollable item-width="110px">
-          <ons-carousel-item modifier="nodivider" id="Recent Movie 1" class="movie_cover"
-            onclick="openMovieDetails(this.id)">
-            <img src="assets/img/movie_cover_template.jpg">
+          <ons-carousel-item modifier="nodivider" class="food_cover" onclick="openFoodDetails()"> <img
+              src="img/ham1.jpg">
           </ons-carousel-item>
-          <ons-carousel-item modifier="nodivider" id="Recent Movie 2" class="movie_cover"
-            onclick="openMovieDetails(this.id)">
-            <img src="assets/img/movie_cover_template.jpg">
+          <ons-carousel-item modifier="nodivider" class="food_cover" onclick="openFoodDetails()"> <img
+              src="img/ham2.jpg">
           </ons-carousel-item>
-          <ons-carousel-item modifier="nodivider" id="Recent Movie 3" class="movie_cover"
-            onclick="openMovieDetails(this.id)">
-            <img src="assets/img/movie_cover_template.jpg">
+          <ons-carousel-item modifier="nodivider" class="food_cover" onclick="openFoodDetails()"> <img
+              src="img/hame3.jpg">
           </ons-carousel-item>
-          <ons-carousel-item modifier="nodivider" id="Recent Movie 4" class="movie_cover"
-            onclick="openMovieDetails(this.id)">
-            <img src="assets/img/movie_cover_template.jpg">
+          <ons-carousel-item modifier="nodivider" class="food_cover" onclick="openFoodDetails()"> <img
+              src="img/ham4.jpg">
           </ons-carousel-item>
-          <ons-carousel-item modifier="nodivider" id="Recent Movie 5" class="movie_cover"
-            onclick="openMovieDetails(this.id)">
-            <img src="assets/img/movie_cover_template.jpg">
+          <ons-carousel-item modifier="nodivider" class="food_cover" onclick="openFoodDetails()">
+            <img src="img/ham1.jpg">
           </ons-carousel-item>
         </ons-carousel>
       </div>
@@ -303,13 +317,13 @@
           color: white;
         }
 
-        .movie_list {
+        .food_list {
           margin: 10px;
           height: 130px;
           padding-top: 30px;
         }
 
-        .movie_list img {
+        .food_list img {
           width: 90%;
         }
       </style>
@@ -319,93 +333,68 @@
 
   <!--  The Movie Detail Page -->
 
-  <template id="movie_details.html">
-    <ons-page id="movie_details">
-      <ons-toolbar class="trailer_toolbar" modifier="transparent" inline>
+  <template id="food_details.html">
+    <ons-page id="food_details">
+      <ons-toolbar>
         <div class="left">
+          <ons-toolbar-button>
+            <ons-icon icon="fa-chevron-left" id='backbtn' onclick="goBack()"></ons-icon>
+          </ons-toolbar-button>
           <ons-if platform="android">
-            <ons-back-button>Back</ons-back-button>
+            <ons-toolbar-button>
+              <ons-icon icon="ion-android-more-vertical"></ons-icon>
+            </ons-toolbar-button>
           </ons-if>
         </div>
+        <div class="center bar">Food detail</div>
         <div class="right">
+          <ons-toolbar-button>
+            <ons-icon icon="fa-search"></ons-icon>
+          </ons-toolbar-button>
           <ons-if platform="android">
             <ons-toolbar-button>
-              <ons-icon icon="md-cast"></ons-icon>
-            </ons-toolbar-button>
-            <ons-toolbar-button>
-              <ons-icon icon="md-share"></ons-icon>
-            </ons-toolbar-button>
-            <ons-toolbar-button>
-              <ons-icon icon="fa-search"></ons-icon>
-            </ons-toolbar-button>
-          </ons-if>
-          <ons-if platform="ios">
-            <ons-toolbar-button onclick="goBack()">
-              <ons-icon style="opacity: 0.7; color: black" icon="ion-ios-close"></ons-icon>
+              <ons-icon icon="ion-android-more-vertical"></ons-icon>
             </ons-toolbar-button>
           </ons-if>
         </div>
       </ons-toolbar>
 
+
       <div class="trailer">
-        <ons-icon icon="fa-play-circle"></ons-icon>
-        <img src="assets/img/onsenui-roadmap.jpg">
+        <img src="img/det1.jpg">
       </div>
 
-      <div class="movie_info">
-        <h2 id="movie_title"></h2>
-        <ons-row class="movie_general_info">
+      <div class="food_info">
+        <h2 id="food_title"></h2>
+        <ons-row class="food_general_info">
           <ons-col class="stars">
-            <ons-icon style="color: red" icon="fa-star"></ons-icon>
-            <ons-icon style="color: red" icon="fa-star"></ons-icon>
-            <ons-icon style="color: red" icon="fa-star"></ons-icon>
-            <ons-icon style="color: red" icon="fa-star"></ons-icon>
+            <ons-icon style="color: yellow" icon="fa-star"></ons-icon>
+            <ons-icon style="color: yellow" icon="fa-star"></ons-icon>
+            <ons-icon style="color: yellow" icon="fa-star"></ons-icon>
+            <ons-icon style="color: yellow" icon="fa-star"></ons-icon>
             <ons-icon style="color: gray" icon="fa-star"></ons-icon>
           </ons-col>
-          <ons-col>2016</ons-col>
-          <ons-col>TV-14</ons-col>
-          <ons-col>2h 0m</ons-col>
+          <ons-col>Kathu</ons-col>
+          <ons-col>Kathu</ons-col>
+          <ons-col>Phuket</ons-col>
         </ons-row>
-        <div class="movie_synopsis">When the protagonist was a child, he dreamed of becoming a hero of a story that
-          everyone will know. As he aged, he realized his dreams are just that - dreams and nothing more. But never did
-          he expect that when he turned 21 years old, the unexpected would have happened and that the story he was
-          longing for will start to unfold.</div>
-        <div class="movie_cast">
-          Cast: Actor 1, Actress 1, Actor 2, Actress 2 <br />
-          Director: Popular Director
-        </div>
-        <ons-row class="movie_extra_buttons">
-          <ons-col>
-            <ons-button modifier="quiet">
-              <ons-icon icon="ion-plus-round"></ons-icon>
-              <div>My List</div>
-            </ons-button>
-          </ons-col>
-          <ons-col>
-            <ons-if platform="ios">
-              <ons-button modifier="quiet">
-                <ons-icon icon="ion-ios-upload-outline"></ons-icon>
-                <div>Share</div>
-              </ons-button>
-            </ons-if>
-          </ons-col>
+        <div class="food_synopsis">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae malesuada purus. Aliquam varius diam lacus,
+          ut bibendum dolor condimentum eget. Morbi egestas eu elit at viverra. Pellentesque fringilla, turpis vel
+          facilisis interdum, sapien neque lobortis ligula, tempor pretium eros sem ac enim. Morbi quis facilisis magna.
+          Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras aliquet arcu sed
+          velit mattis, ut dictum nisl iaculis. Suspendisse sem orci, semper eget lectus non, tristique hendrerit dolor.
+          Vestibulum pretium odio sit amet purus malesuada, semper blandit lacus elementum</div>
+
+        <ons-row class="food_extra_buttons">
+          <ons-button modifier="large" style="background-color: green" onclick="openPayment()">
+            <ons-icon icon="fa-money"></ons-icon>
+            <div>Buy</div>
+          </ons-button>
+
         </ons-row>
       </div>
 
-      <div class="movie_list">
-        Similar Movies
-        <ons-carousel auto-refresh swipeable overscrollable item-width="110px">
-          <ons-carousel-item modifier="nodivider" id="Similar Movie 1" onclick="openMovieDetails(this.id)">
-            <img src="assets/img/movie_cover_template.jpg">
-          </ons-carousel-item>
-          <ons-carousel-item modifier="nodivider" id="Similar Movie 2" onclick="openMovieDetails(this.id)">
-            <img src="assets/img/movie_cover_template.jpg">
-          </ons-carousel-item>
-          <ons-carousel-item modifier="nodivider" id="Similar Movie 3" onclick="openMovieDetails(this.id)">
-            <img src="assets/img/movie_cover_template.jpg">
-          </ons-carousel-item>
-        </ons-carousel>
-      </div>
 
       <style type="text/css">
         .trailer {
@@ -441,23 +430,23 @@
           position: absolute;
         }
 
-        .movie_info {
+        .food_info {
           padding: 0px 10px;
           font-size: 14px;
         }
 
-        .movie_general_info {
+        .food_general_info {
           width: 250px;
           margin-bottom: 15px;
           color: gray;
         }
 
-        .movie_synopsis {
+        .food_synopsis {
           text-align: justify;
           margin-bottom: 10px;
         }
 
-        .movie_cast {
+        .food_cast {
           color: gray;
         }
 
@@ -466,22 +455,22 @@
           margin-right: 15px
         }
 
-        .movie_extra_buttons {
+        .food_extra_buttons {
           margin-top: 20px;
           width: 50%;
         }
 
-        .movie_extra_buttons ons-icon {
+        .food_extra_buttons ons-icon {
           font-size: 25px;
         }
 
-        .movie_extra_buttons ons-button {
+        .food_extra_buttons ons-button {
           text-align: center;
           color: white;
           font-size: 14px;
         }
 
-        .movie_extra_buttons ons-button:active {
+        .food_extra_buttons ons-button:active {
           color: #96003c;
         }
       </style>
@@ -509,18 +498,62 @@
       color: white;
     }
   </style>
+
   </template>
 
-  <template id="page2.html" class="page">
-    <ons-page id="page2">
+
+  <template id="payment.html">
+    <ons-page id="payment">
+
       <ons-toolbar>
         <div class="left">
-          <ons-back-button>Page 1</ons-back-button>
+          <ons-toolbar-button>
+            <ons-icon icon="fa-chevron-left" id='backbtn' onclick="goBack()"></ons-icon>
+          </ons-toolbar-button>
+          <ons-if platform="android">
+            <ons-toolbar-button>
+              <ons-icon icon="ion-android-more-vertical"></ons-icon>
+            </ons-toolbar-button>
+          </ons-if>
         </div>
-        <div class="center"></div>
+        <div class="center bar">Fast Food</div>
+        <div class="right">
+          <ons-toolbar-button>
+            <ons-icon icon="fa-search"></ons-icon>
+          </ons-toolbar-button>
+          <ons-if platform="android">
+            <ons-toolbar-button>
+              <ons-icon icon="ion-android-more-vertical"></ons-icon>
+            </ons-toolbar-button>
+          </ons-if>
+        </div>
       </ons-toolbar>
 
-      <p>This is the second page.</p>
+      <ons-card>
+        <img src="img/chickrice4.jpg" alt="ข้าวยำไก่" style="width: 100%">
+        <div class="title bar">
+          ข้าวยำไก่
+        </div>
+        <div class="content">
+          <div>
+          </div>
+          <ons-list>
+            <ons-list-header>จัดส่งภายในเวลา 30 นาที</ons-list-header>
+            <ons-list-item style="color: black"> ราคา : 79 -.</ons-list-item>
+            <ons-list-item style="color: black">ค่าส่ง : 30 -.</ons-list-item>
+            <ons-list-item style="color: black">เบอร์โทร ลูกค้า : 06xxxxx83</ons-list-item>
+            <ons-list-item style="color: black">รวม: 109 -.</ons-list-item>
+          </ons-list>
+        </div>
+
+        <ons-row>
+          <ons-button modifier="large" style="background-color: green" onclick="ons.notification.toast(' Your Food will be arrive soon. Thank you!', { timeout: 1000, animation: 'fall' })"">
+            <ons-icon icon="fa-money"></ons-icon>
+            <div>Confirm this purchase</div>
+          </ons-button>
+        </ons-row>
+      </ons-card>
+
     </ons-page>
   </template>
 
