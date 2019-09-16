@@ -28,6 +28,7 @@
   
   function openHome() {
     document.querySelector('#myNavigator').pushPage('home_splitter.html');
+    
   }
   function goBack() {
     document.querySelector('#menu').close().then(function() {

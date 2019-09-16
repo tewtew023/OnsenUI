@@ -97,32 +97,7 @@
             
             <!--  The Splitter Menu -->
             
-            <template id="menu.html">
-              <ons-page id="menu">
-                <ons-list style="background-color: transparent;">
-                  <ons-list-header class="menu_header">View by Category</ons-list-header>
-                  <ons-list-item tappable>Action</ons-list-item>
-                  <ons-list-item tappable>Comedy</ons-list-item>
-                  <ons-list-item tappable>Horror</ons-list-item>
-                  <ons-list-item tappable>Romance</ons-list-item>
-                  <ons-list-header class="menu_header">Options</ons-list-header>
-                  <ons-list-item tappable>Account Settings</ons-list-item>
-                  <ons-list-item tappable>Global Settings</ons-list-item>
-                  <ons-list-item onclick="goBack()" tappable>Logout</ons-list-item>
-                </ons-list>
             
-                <style type="text/css">
-                  .menu_header {
-                    background-color: black;
-                    border-bottom: 1px solid rgba(147, 145, 145, 0.76);
-                    color: white;
-                    height: 25px;
-                    font-size: 10px;
-                    padding: 0 0 0 16px!important;
-                  }
-                </style>
-              </ons-page>
-            </template>
             
             
             <!--  The Home Page -->
@@ -131,7 +106,7 @@
               <ons-page id="home">
                 <ons-toolbar>
                   <div class="left"><ons-toolbar-button id="menu_button"><ons-icon icon="fa-bars"></ons-icon></ons-toolbar-button></div>
-                  <div class="center" style="color: red">HOME PAGE</div>
+                  <div class="center" style="color: red">Fruit</div>
                   <div class="right">
                     <ons-toolbar-button><ons-icon icon="fa-search"></ons-icon></ons-toolbar-button>
                     <ons-if platform="android"><ons-toolbar-button><ons-icon icon="ion-android-more-vertical"></ons-icon></ons-toolbar-button></ons-if>
@@ -141,13 +116,13 @@
             
                 <ons-carousel class="carousel" swipeable auto-scroll id="carousel">
                   <ons-carousel-item>
-                    <img src="assets/img/onsenui-roadmap.jpg" />
+                    <img src="img/apple-benefits_620x350_51507721694.png" />
                   </ons-carousel-item>
                   <ons-carousel-item>
-                    <img src="assets/img/Monaca_Logo.jpg" />
+                    <img src="img/grape.jpg" />
                   </ons-carousel-item>
                   <ons-carousel-item>
-                    <img src="assets/img/Onsen_UI_Logo.jpg" />
+                    <img src="img/orange.jpg" />
                   </ons-carousel-item>
                 </ons-carousel>
                 <div class="cover-label center">
@@ -159,22 +134,22 @@
                 </div>
             
                 <div class="movie_list">
-                  My List
+                  Apples
                   <ons-carousel auto-refresh swipeable overscrollable item-width="110px">
                     <ons-carousel-item modifier="nodivider" id="Movie 1" onclick="openMovieDetails(this.id)">
-                      <img src="assets/img/movie_cover_template.jpg">
+                      <img src="img/apple-benefits_620x350_51507721694.png">
                     </ons-carousel-item>
                     <ons-carousel-item modifier="nodivider" id="Movie 2" onclick="openMovieDetails(this.id)">
-                      <img src="assets/img/movie_cover_template.jpg">
+                      <img src="img/How-to-Grow-Apple-Trees-at-Home.jpg">
                     </ons-carousel-item>
                     <ons-carousel-item modifier="nodivider" id="Movie 3" onclick="openMovieDetails(this.id)">
-                      <img src="assets/img/movie_cover_template.jpg">
+                      <img src="img/appl2.jpg">
                     </ons-carousel-item>
                     <ons-carousel-item modifier="nodivider" id="Movie 4" onclick="openMovieDetails(this.id)">
-                      <img src="assets/img/movie_cover_template.jpg">
+                      <img src="img/apple3.jpg">
                     </ons-carousel-item>
                     <ons-carousel-item modifier="nodivider" id="Movie 5" onclick="openMovieDetails(this.id)">
-                      <img src="assets/img/movie_cover_template.jpg">
+                      <img src="img/apple4.jpg">
                     </ons-carousel-item>
                   </ons-carousel>
                 </div>
@@ -259,7 +234,7 @@
                   }
             
                   .movie_list img {
-                    width: 90%
+                    width: 90%;
                   }
                 </style>
               </ons-page>
