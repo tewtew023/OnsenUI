@@ -5,15 +5,17 @@
         </div>
         <div class="center" style="color:azure ">Sign up</div>
     </ons-toolbar>
+    <form method="POST">
     <div class="sign-up-form form">
-        <input type="email" class="text-input--underbar" placeholder="Email" style="color: blanchedalmond">
-        <input type="password" class="text-input--underbar" placeholder="Password">
-        <input type="con-password" class="text-input--underbar" placeholder="Confirm Password">
+        <input type="email" class="text-input--underbar" placeholder="Email" style="color: blanchedalmond" id="email"  autocomplete="new-email">
+        <input type="password"  class="text-input--underbar" placeholder="Password" autocomplete="new-password" id='pwd'>
+        <!-- <input type="password" class="text-input--underbar" placeholder="Password" id="pwd"> -->
         <br><br>
         <input type="Fname" class="text-input--underbar" placeholder="First name">
         <input type="tel" class="text-input--underbar" placeholder="Phone">
         <br><br>
-        <ons-button modifier="large" class="sign-up-button" onclick="openHome()">Sign up</ons-button>
+        <ons-button modifier="large" class="sign-up-button"  id="subtn">Sign up</ons-button>
         <br><br>
     </div>
+</form>
 </ons-page>
