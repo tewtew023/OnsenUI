@@ -1,0 +1,31 @@
+<ons-page id='pagelogin'>
+    <ons-toolbar>
+      <div class="left">
+        <ons-if platform="android">
+          <ons-back-button onclick="goBack()">Back</ons-back-button>
+        </ons-if>
+      </div>
+      <div class="center bar">
+        Login
+      </div>
+      <div class="right">
+        <ons-if platform="android">
+        </ons-if>
+        <ons-if platform="ios">
+          <ons-toolbar-button onclick="goBack()">
+            <ons-icon style="opacity: 0.7; color: black" icon="ion-ios-close"></ons-icon>
+          </ons-toolbar-button>
+        </ons-if>
+      </div>
+    </ons-toolbar>
+
+    <div class="login-form form">
+
+      <input type="email" class="text-input--underbar" placeholder="Email">
+      <input type="password" class="text-input--underbar" placeholder="Password">
+      <br><br>
+      <ons-button modifier="large" class="login-button" id="signed" onclick="openHome()">Log In</ons-button>
+      <br><br>
+      <ons-button modifier="quiet" class="sign-up" onclick="openSignup()">Have no ? Sign up here!</ons-button>
+    </div>
+  </ons-page>
