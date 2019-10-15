@@ -19,7 +19,7 @@
       </div>
     </ons-toolbar>
 <form method="POST">
-    <div class="login-form form">
+    <div class="login-form form" id="form">
 
       <input type="email" class="text-input--underbar" placeholder="Email" id="email" autocomplete="current-password">
       <input type="password" class="text-input--underbar" placeholder="Password" id="pwd" autocomplete="current-password">
@@ -27,6 +27,7 @@
       <ons-button modifier="large" class="login-button" id="signed-in">Log In</ons-button>
       <br><br>
       <ons-button modifier="quiet" class="sign-up" onclick="openSignup()">Have no ? Sign up here!</ons-button>
+      <ons-button modifier="large" class="login-button" id="loguotbtn">Log out</ons-button>
     </div>
   </form>
   </ons-page>

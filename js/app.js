@@ -9,7 +9,18 @@ var firebaseConfig = {
   appId: "1:509663659157:web:7377b143116d3ae499c79c",
   measurementId: "G-YF41N5BQBX"
 };
-
+(function ($) {
+  $.fn.invisible = function () {
+    return this.each(function () {
+      $(this).css("visibility", "hidden");
+    });
+  };
+  $.fn.visible = function () {
+    return this.each(function () {
+      $(this).css("visibility", "visible");
+    });
+  };
+}(jQuery));
 
 
 
@@ -45,31 +56,21 @@ var db = firebase.firestore();
 document.addEventListener('init', function (event) {
   var page = event.target;
   console.log(page.id);
+  $('#loguotbtn').invisible();
 
   //Mornitor authen status
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    var email = user.email;
-    console.log(email + "signed in");
-    $('#content').load("rec.html");
-    // User is signed in.
-    /*
-    var displayName = user.displayName;
-    var email = user.email;
-    var emailVerified = user.emailVerified;
-    var photoURL = user.photoURL;
-    var isAnonymous = user.isAnonymous;
-    var uid = user.uid;
-    var providerData = user.providerData;
-    */
-    // ...
-  } else {
-    console.log("signed out");
-    
-    // User is signed out.
-    // ...
-  }
-});
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      $('#loguotbtn').visible();
+      var email = user.email;
+      console.log(email + "  signed in");
+    } else {
+      console.log("signed out");
+
+      // User is signed out.
+      // ...
+    }
+  });
 
 
   //Start Register page
@@ -103,18 +104,30 @@ firebase.auth().onAuthStateChanged(function(user) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-        // console.log(errorCode);
-        // console.log(errorMessage);
-        // ... 
-       console.log('Error message :'+errorMessage);    
-       console.log("Error Code :"+errorcode);
-
+        if (errorCode === 'auth/wrong-password') {
+          alert('Wrong password.');
+        } else {
+          alert(errorMessage);
+        }
 
 
       });
     });
 
   }
-//End Login page
+  //End Login page
+
+
+  $('#loguotbtn').click(function () {
+    $('#loguotbtn').invisible();
+    firebase.auth().signOut().then(function () {
+      console.log('Signed Out');
+    }, function (error) {
+      console.error('Sign Out Error', error);
+    });
+  });
+
 
 });
+
+
