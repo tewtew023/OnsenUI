@@ -10,56 +10,6 @@ var firebaseConfig = {
   measurementId: "G-YF41N5BQBX"
 };
 
-document.addEventListener('init', function (event) {
-  var page = event.target;
-  console.log(page.id);
-
-
-  //Start Register page
-  if (page.id === 'Register') {
-
-    $("#subtn").click(function () {
-      var email = $("#email").val();
-      var pwd = $('#pwd').val();
-      console.log(email + pwd);
-      console.log("sign-up clicked");
-      firebase.auth().createUserWithEmailAndPassword(email, pwd).catch(function (error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // ...
-        console.log(errorCode);
-        console.log(errorMessage);
-      });
-    });
-  }
-  //End Register page
-  //Start Login page
-  if (page.id === 'pagelogin') {
-    $('#signed-in').click(function () {
-      var email = $("#email").val();
-      var pwd = $('#pwd').val();
-      firebase.auth().signInWithEmailAndPassword(email, pwd).catch(function (error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // console.log(errorCode);
-        // console.log(errorMessage);
-        // ...
-     if(errorCode!=null){   
-       console.log(errorMessage);    
-       console.log(errorMessage);
-     }else{openHome();}
-
-
-      });
-    });
-
-  }
-//End Login page
-
-});
-
 
 
 
@@ -89,3 +39,82 @@ firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 
 
+
+
+
+document.addEventListener('init', function (event) {
+  var page = event.target;
+  console.log(page.id);
+
+  //Mornitor authen status
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    var email = user.email;
+    console.log(email + "signed in");
+    $('#content').load("rec.html");
+    // User is signed in.
+    /*
+    var displayName = user.displayName;
+    var email = user.email;
+    var emailVerified = user.emailVerified;
+    var photoURL = user.photoURL;
+    var isAnonymous = user.isAnonymous;
+    var uid = user.uid;
+    var providerData = user.providerData;
+    */
+    // ...
+  } else {
+    console.log("signed out");
+    
+    // User is signed out.
+    // ...
+  }
+});
+
+
+  //Start Register page
+  if (page.id === 'Register') {
+
+    $("#subtn").click(function () {
+      var email = $("#email").val();
+      var pwd = $('#pwd').val();
+      console.log(email + pwd);
+      console.log("sign-up clicked");
+      firebase.auth().createUserWithEmailAndPassword(email, pwd).catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ...
+        console.log(errorCode);
+        console.log(errorMessage);
+      });
+    });
+  }
+
+  //End Register page
+
+
+  //Start Login page
+  if (page.id === 'pagelogin') {
+    $('#signed-in').click(function () {
+      var email = $("#email").val();
+      var pwd = $('#pwd').val();
+      firebase.auth().signInWithEmailAndPassword(email, pwd).catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // console.log(errorCode);
+        // console.log(errorMessage);
+        // ... 
+       console.log('Error message :'+errorMessage);    
+       console.log("Error Code :"+errorcode);
+
+
+
+      });
+    });
+
+  }
+//End Login page
+
+});
