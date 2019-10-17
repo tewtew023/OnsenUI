@@ -16,6 +16,15 @@
         
         // Your web app's Firebase configuration
         var firebaseConfig = {
+            
+  apiKey: "AIzaSyAKcz3NgRSyTBYnAfpGnkaEaEfkLwgSYlY",
+  authDomain: "food-first-b91f2.firebaseapp.com",
+  databaseURL: "https://food-first-b91f2.firebaseio.com",
+  projectId: "food-first-b91f2",
+  storageBucket: "food-first-b91f2.appspot.com",
+  messagingSenderId: "509663659157",
+  appId: "1:509663659157:web:7377b143116d3ae499c79c",
+  measurementId: "G-YF41N5BQBX"
 
         };
         // Initialize Firebase
@@ -24,12 +33,14 @@
         $.get("Jsontest.json", function (data, status) {
             for (var index in data) {
                 var Res = data[index];
-                db.collection("YouCollentionName").doc(Res.id).set({
+                var Sid = Res.id.toString();
+                db.collection("chestergrillmenu").doc(Sid).set({
                     id: Res.id,
                     name: Res.name,
-                    img: Res.img,
+                    url: Res.url,
                 })
             }
+            console.log('Done');
         });
 
     </script>
