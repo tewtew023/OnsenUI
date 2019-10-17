@@ -112,18 +112,25 @@ document.addEventListener('init', function (event) {
     console.log('home');
   db.collection("chestergrillmenu").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
-        console.log(`${doc.data().id} => ${doc.data().url}`);
+        console.log(`${doc.data().id} => ${doc.data().name}`);
         var id = `${doc.data().id}`
         console.log(id);
         var item = `<ons-carousel-item modifier="nodivider" class="recomended_item">
         <img src="${doc.data().url}">
         <div class="recomended_item_title" id="item1_${doc.data().id}">${doc.data().name}</div>
         </ons-carousel-item>`;
+        var promo = `<ons-carousel-item modifier="nodivider" class="promo_item">
+        <img src="${doc.data().url}">
+        </ons-carousel-item>`
+
         if(id<=106) {$("#list1").append(item);}
         else if(id<=110 && id>106){ $("#list2").append(item);}
-        else if(id>110){ $("#list3").append(item);}
+        else if(id>110 && id<150){ $("#list3").append(item);}
+        else if(id>=201){$("#promo").append(promo);
 
-     
+        }
+
+       
       
     });
 });
