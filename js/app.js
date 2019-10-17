@@ -192,6 +192,33 @@ document.addEventListener('init', function (event) {
   //End Login page
 
 
+  //start reccommended page
+
+  if (page.id === 'rec') {
+    var i=1;
+    console.log('rec page');
+  db.collection("category").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        console.log(`${doc.data().id} => ${doc.data().name}`);
+        var id = `${doc.data().id}`
+        console.log(id);
+        var item = `<img src="${doc.data().url}" width="120" heigt="120">`;
+
+
+      //  $("#promo").append(promo);
+       $("#category"+i).append(item);
+      i++;
+
+       
+      
+    });
+});
+
+}
+
+// end rec page
+
+
   $('#loguotbtn').click(function () {
     $('#loguotbtn').invisible();
     firebase.auth().signOut().then(function () {

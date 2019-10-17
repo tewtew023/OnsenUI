@@ -1,20 +1,22 @@
 [
-    {
-    "id":201,
-    "name": "ข้าวไก่กรอบซอสปลา",
-    "url": "https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Fpromotion%2Fpro1.jpg?alt=media&token=36048a93-4eb9-4f70-909b-b0f751ed676e"
-
+    {  
+    "name": "Pizza",
+    "url": "https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Fcategory%2Fpizza.png?alt=media&token=ff526265-79e3-4519-910d-c0b7cf07d2e0"
+},
+{ 
+    "name": "Steak",
+    "url": "https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Fcategory%2Fsteak.png?alt=media&token=95992ea7-452c-4f5b-9381-c95ad299a4d6"
 },
 {
-    "id":202,
-    "name": "ชุดไก่ใหญ่มาก",
-    "url": "https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Fpromotion%2Fpro2.jpg?alt=media&token=3f992b1d-6f69-4210-be78-ed3b0d84d5c8"
-
+    "name": "Dessert",
+    "url": "https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Fcategory%2Fdonut.png?alt=media&token=06f8399b-0921-4f90-9303-f5c98d78e13c"
 },
-{
-    "id":203,
-    "name": "ไก่เดย์เฮฮา",
-    "url": "https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Fpromotion%2Fpro3.jpg?alt=media&token=55307cd0-571c-47e4-9f02-cc540bd84669"
-
+{ 
+    "name": "A La Carte",
+    "url": "https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Fcategory%2Ffood.png?alt=media&token=dd10830d-7f4f-4e28-a373-ad8f23ca433a"
+},
+{ 
+    "name": "Drinks",
+    "url": "https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Fcategory%2Fchocolate.png?alt=media&token=c64dbf38-954a-474e-a16d-3a42bdce1256"
 }
 ]

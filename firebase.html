@@ -33,9 +33,8 @@
         $.get("Jsontest.json", function (data, status) {
             for (var index in data) {
                 var Res = data[index];
-                var Sid = Res.id.toString();
-                db.collection("chestergrillmenu").doc(Sid).set({
-                    id: Res.id,
+                db.collection("category").doc(Res.name).set({
+                    // id: Res.id,
                     name: Res.name,
                     url: Res.url,
                 })
