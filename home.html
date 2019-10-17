@@ -1,15 +1,10 @@
 <ons-page id="home">
     <ons-toolbar>
-      <div class="left">
-        <ons-toolbar-button>
-          <ons-icon icon="fa-chevron-left" id='backbtn' onclick="goBack()"></ons-icon>
-        </ons-toolbar-button>
-        <ons-if platform="android">
-          <ons-toolbar-button>
-            <ons-icon icon="ion-android-more-vertical"></ons-icon>
-          </ons-toolbar-button>
-        </ons-if>
-      </div>
+        <div class="left">
+            <ons-toolbar-button id="menubtn">
+                <i class="fas fa-bars" style="color: black;" size="32px,material:24px"></i>
+            </ons-toolbar-button>
+          </div>
       <div class="center bar">Food First</div>
       <div class="right">
         <ons-toolbar-button>
@@ -25,69 +20,20 @@
 
 
     <ons-carousel class="carousel" swipeable auto-scroll id="promo">
-      <!-- <ons-carousel-item>
-        <img src="img/pro1.jpg" />
-      </ons-carousel-item>
-      <ons-carousel-item>
-        <img src="img/pro2.jpg" />
-      </ons-carousel-item>
-      <ons-carousel-item>
-        <img src="img/pro3.jpg" />
-      </ons-carousel-item> -->
+
     </ons-carousel>
-    <div class="cover-label center">
-      <ul>
-        <li>
-          <div id="dot0" class="circle circle_current">&#x25cf;</div>
-        </li>
-        <li>
-          <div id="dot1" class="circle">&#x25cf;</div>
-        </li>
-        <li>
-          <div id="dot2" class="circle">&#x25cf;</div>
-        </li>
-      </ul>
-    </div>
 
     <div class="food_list" >
       Chicken wiht Rice menus
       <ons-carousel auto-refresh swipeable overscrollable item-width="110px" class="recomended_list" id="list1">
-        <!-- <ons-carousel-item modifier="nodivider" onclick="openFoodDetails()">
-          <img src="img/chickrice.jpg">  chickrice
-        </ons-carousel-item>
-        <ons-carousel-item modifier="nodivider" onclick="openFoodDetails()">
-          <img src="img/chickrice1.jpg"> chickrice
-        </ons-carousel-item>
-        <ons-carousel-item modifier="nodivider" onclick="openFoodDetails()">
-          <img src="img/chickrice2.jpg"> chickrice
-        </ons-carousel-item>
-        <ons-carousel-item modifier="nodivider" onclick="openFoodDetails()">
-          <img src="img/chickrice3.jpg"> chickrice
-        </ons-carousel-item>
-        <ons-carousel-item modifier="nodivider" onclick="openFoodDetails()">
-          <img src="img/chickrice4.jpg"> chickrice
-        </ons-carousel-item> -->
+
       </ons-carousel>
     </div>
 
     <div class="food_list">
       Only chicken
       <ons-carousel auto-refresh swipeable overscrollable item-width="110px" id="list2">
-        <!-- <ons-carousel-item modifier="nodivider" onclick="openFoodDetails()">
-          <img src="img/chick.jpg">
-        </ons-carousel-item>
-        <ons-carousel-item modifier="nodivider" onclick="openFoodDetails()">
-          <img src="img/chick1.jpg">
-        </ons-carousel-item>
-        <ons-carousel-item modifier="nodivider" onclick="openFoodDetails()">
-          <img src="img/chick2.jpg">
-        </ons-carousel-item>
-        <ons-carousel-item modifier="nodivider" onclick="openFoodDetails()">
-          <img src="img/chick3.jpg">
-        </ons-carousel-item>
-        <ons-carousel-item modifier="nodivider" onclick="openFoodDetails()">
-          <img src="img/chickrice5.jpg">
-        </ons-carousel-item> -->
+
       </ons-carousel>
     </div>
 

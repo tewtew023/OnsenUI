@@ -5,10 +5,11 @@
     background-image: url(img/green.png);
   }
  .toolbar{ 
-     background-color:black; 
+     background-color:grey; 
      padding-right: 15px;
  }
  .bar{
         color: azure;}
-
-     
+  .fa{
+    color:black;
+  }

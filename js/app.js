@@ -28,7 +28,7 @@ function openFoodDetails(id) {
   document.querySelector('#myNavigator').pushPage('food_details.html');
 }
 function openHome() {
-  document.querySelector('#myNavigator').pushPage('home_splitter.html');
+  document.querySelector('#myNavigator').pushPage('home.html');
 }
 function goBack() {
   document.querySelector('#myNavigator').popPage()
@@ -107,11 +107,11 @@ document.addEventListener('init', function (event) {
 
   //End Register page
 
-//start home page
+  //start home page
   if (page.id === 'home') {
     console.log('home');
-  db.collection("chestergrillmenu").get().then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
+    db.collection("chestergrillmenu").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
         console.log(`${doc.data().id} => ${doc.data().name}`);
         var id = `${doc.data().id}`
         console.log(id);
@@ -123,21 +123,26 @@ document.addEventListener('init', function (event) {
         <img src="${doc.data().url}">
         </ons-carousel-item>`
 
-        if(id<=106) {$("#list1").append(item);}
-        else if(id<=110 && id>106){ $("#list2").append(item);}
-        else if(id>110 && id<150){ $("#list3").append(item);}
-        else if(id>=201){$("#promo").append(promo);
+        if (id <= 106) { $("#list1").append(item); }
+        else if (id <= 110 && id > 106) { $("#list2").append(item); }
+        else if (id > 110 && id < 150) { $("#list3").append(item); }
+        else if (id >= 201) {
+          $("#promo").append(promo);
 
         }
 
-       
+
+
+      });
       
     });
-});
+    $("#menubtn").click(function () {
+      console.log('menubtn');
+      $("#sidemenu")[0].open();
+    });
 
-}
-
-//end home page
+  }
+  //end home page
 
 
   //Start Login page
@@ -161,9 +166,9 @@ document.addEventListener('init', function (event) {
 
 
 
-    $('#gglogin').click( function googleLogin() {
+    $('#gglogin').click(function googleLogin() {
       firebase.auth().signInWithRedirect(provider);
-      firebase.auth().getRedirectResult().then(function(result) {
+      firebase.auth().getRedirectResult().then(function (result) {
         if (result.credential) {
           // This gives you a Google Access Token. You can use it to access the Google API.
           var token = result.credential.accessToken;
@@ -171,9 +176,9 @@ document.addEventListener('init', function (event) {
         }
         // The signed-in user info.
         var user = result.user;
-        console.log('user'+token);
-        
-      }).catch(function(error) {
+        console.log('user' + token);
+
+      }).catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
@@ -182,41 +187,59 @@ document.addEventListener('init', function (event) {
         // The firebase.auth.AuthCredential type that was used.
         var credential = error.credential;
         // ...
-        console.log('error'+errorCode);
+        console.log('error' + errorCode);
       });
     });
-   
+
 
 
   }
   //End Login page
+  //start menu page
+  if (page.id === 'menuPage') {
+    console.log("menuPage");
 
+    $("#login").click(function () {
+      $("#content")[0].load("login.html");
+      $("#sidemenu")[0].close();
+    });
 
+    $("#home").click(function () {
+      $("#content")[0].load("home.html");
+      $("#sidemenu")[0].close();
+    });
+  }
+  //end menu
   //start reccommended page
 
   if (page.id === 'rec') {
-    var i=1;
+    var i = 1;
     console.log('rec page');
-  db.collection("category").get().then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
+    db.collection("category").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
         console.log(`${doc.data().id} => ${doc.data().name}`);
         var id = `${doc.data().id}`
         console.log(id);
         var item = `<img src="${doc.data().url}" width="120" heigt="120">`;
 
 
-      //  $("#promo").append(promo);
-       $("#category"+i).append(item);
-      i++;
+        //  $("#promo").append(promo);
+        $("#category" + i).append(item);
+        i++;
 
-       
-      
+
+
+      });
+
     });
-});
 
-}
+    $("#menubtn").click(function () {
+      $("#sidemenu")[0].open();
+    });
 
-// end rec page
+  }
+
+  // end rec page
 
 
   $('#loguotbtn').click(function () {
