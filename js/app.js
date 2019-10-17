@@ -49,14 +49,26 @@ function Paysuccess() {
 firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 
+
+
+
+
+
 var provider = new firebase.auth.GoogleAuthProvider();
 provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+
+
+
+
 
 
 document.addEventListener('init', function (event) {
   var page = event.target;
   console.log(page.id);
   $('#loguotbtn').invisible();
+
+
+
 
   //Mornitor authen status
   firebase.auth().onAuthStateChanged(function (user) {
@@ -71,6 +83,7 @@ document.addEventListener('init', function (event) {
       // ...
     }
   });
+
 
 
   //Start Register page
@@ -93,6 +106,24 @@ document.addEventListener('init', function (event) {
   }
 
   //End Register page
+
+//start home page
+  if (page.id === 'home') {
+    console.log('home');
+  db.collection("chestergrillmenu").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        console.log(`${doc.data().id} => ${doc.data().url}`);
+        var item = `<ons-carousel-item modifier="nodivider" class="recomended_item">
+        <img src="${doc.data().url}">
+        <div class="recomended_item_title" id="item1_${doc.data().id}">${doc.data().name}</div>
+        </ons-carousel-item>`;
+      $("#list").append(item);
+      console.log(item);
+    });
+});
+}
+
+//end home page
 
 
   //Start Login page
@@ -158,5 +189,6 @@ document.addEventListener('init', function (event) {
 
 
 });
+
 
 

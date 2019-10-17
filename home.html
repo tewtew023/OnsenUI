@@ -24,7 +24,7 @@
     </ons-toolbar>
 
 
-    <ons-carousel class="carousel" swipeable auto-scroll id="carousel">
+    <ons-carousel class="carousel" swipeable auto-scroll id="promo">
       <ons-carousel-item>
         <img src="img/pro1.jpg" />
       </ons-carousel-item>
@@ -49,24 +49,24 @@
       </ul>
     </div>
 
-    <div class="food_list">
+    <div class="food_list" >
       Chicken wiht Rice menus
-      <ons-carousel auto-refresh swipeable overscrollable item-width="110px">
-        <ons-carousel-item modifier="nodivider" onclick="openFoodDetails()">
-          <img src="img/chickrice.jpg">
+      <ons-carousel auto-refresh swipeable overscrollable item-width="110px" class="recomended_list" id="list">
+        <!-- <ons-carousel-item modifier="nodivider" onclick="openFoodDetails()">
+          <img src="img/chickrice.jpg">  chickrice
         </ons-carousel-item>
         <ons-carousel-item modifier="nodivider" onclick="openFoodDetails()">
-          <img src="img/chickrice1.jpg">
+          <img src="img/chickrice1.jpg"> chickrice
         </ons-carousel-item>
         <ons-carousel-item modifier="nodivider" onclick="openFoodDetails()">
-          <img src="img/chickrice2.jpg">
+          <img src="img/chickrice2.jpg"> chickrice
         </ons-carousel-item>
         <ons-carousel-item modifier="nodivider" onclick="openFoodDetails()">
-          <img src="img/chickrice3.jpg">
+          <img src="img/chickrice3.jpg"> chickrice
         </ons-carousel-item>
         <ons-carousel-item modifier="nodivider" onclick="openFoodDetails()">
-          <img src="img/chickrice4.jpg">
-        </ons-carousel-item>
+          <img src="img/chickrice4.jpg"> chickrice
+        </ons-carousel-item> -->
       </ons-carousel>
     </div>
 
@@ -127,11 +127,24 @@
         list-style: none;
         padding: 0;
       }
+      .recomended_item {
+        padding-left: 10px;
+    }
 
       ul li {
         display: inline;
         margin-right: 5px;
       }
+
+      .thumbnail {
+        width: 120px;
+        height: 120px;
+        display: table;
+        background-color: rgba(0, 0, 0, 0.42);
+    }
+    .recomended_list {
+        height: 150px;
+    }
 
       .circle {
         font-size: 15px;
