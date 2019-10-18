@@ -24,9 +24,7 @@ var firebaseConfig = {
 
 
 
-function openFoodDetails(id) {
-  document.querySelector('#myNavigator').pushPage('food_details.html');
-}
+
 function openHome() {
   document.querySelector('#myNavigator').pushPage('home.html');
 }
@@ -58,16 +56,24 @@ var provider = new firebase.auth.GoogleAuthProvider();
 provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
 
 
+function openFoodDetails(id) {
+  var user = null
+  user = firebase.auth().currentUser;
+  if(user!=null){
+  document.querySelector('#myNavigator').pushPage('food_details.html');}
+  else{openLogin();}
+}
 
-
-
+function openShop() {
+  document.querySelector('#myNavigator').pushPage('shop.html');
+}
 
 document.addEventListener('init', function (event) {
   var page = event.target;
   console.log(page.id);
   $('#loguotbtn').invisible();
 
-
+   
 
 
   //Mornitor authen status
@@ -115,7 +121,7 @@ document.addEventListener('init', function (event) {
         console.log(`${doc.data().id} => ${doc.data().name}`);
         var id = `${doc.data().id}`
         console.log(id);
-        var item = `<ons-carousel-item modifier="nodivider" class="recomended_item">
+        var item = `<ons-carousel-item modifier="nodivider" class="recomended_item" onclick="openFoodDetails(${doc.data().id})">
         <img src="${doc.data().url}">
         <div class="recomended_item_title" id="item1_${doc.data().id}">${doc.data().name}</div>
         </ons-carousel-item>`;
@@ -127,7 +133,7 @@ document.addEventListener('init', function (event) {
         else if (id <= 110 && id > 106) { $("#list2").append(item); }
         else if (id > 110 && id < 150) { $("#list3").append(item); }
         else if (id >= 201) {
-          $("#promo").append(promo);
+          // $("#promo").append(promo);
 
         }
 
@@ -197,16 +203,18 @@ document.addEventListener('init', function (event) {
   //End Login page
   //start menu page
   if (page.id === 'menuPage') {
+
     console.log("menuPage");
 
     $("#login").click(function () {
-      $("#content")[0].load("login.html");
       $("#sidemenu")[0].close();
+      openLogin();
+      
     });
 
     $("#home").click(function () {
-      $("#content")[0].load("home.html");
       $("#sidemenu")[0].close();
+      openHome();
     });
   }
   //end menu

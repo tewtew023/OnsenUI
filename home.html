@@ -1,116 +1,103 @@
 <ons-page id="home">
-    <ons-toolbar>
-        <div class="left">
-            <ons-toolbar-button id="menubtn">
-                <i class="fas fa-bars" style="color: black;" size="32px,material:24px"></i>
-            </ons-toolbar-button>
-          </div>
-      <div class="center bar">Food First</div>
-      <div class="right">
+  <ons-toolbar>
+    <div class="left">
+      <ons-toolbar-button>
+        <ons-icon icon="fa-chevron-left" id='backbtn' onclick="goBack()"></ons-icon>
+      </ons-toolbar-button>
+    </div>
+    <div class="center bar">Food First</div>
+    <div class="right">
+      <ons-toolbar-button>
+        <ons-icon icon="fa-search"></ons-icon>
+      </ons-toolbar-button>
+      <ons-if platform="android">
         <ons-toolbar-button>
-          <ons-icon icon="fa-search"></ons-icon>
+          <ons-icon icon="ion-android-more-vertical"></ons-icon>
         </ons-toolbar-button>
-        <ons-if platform="android">
-          <ons-toolbar-button>
-            <ons-icon icon="ion-android-more-vertical"></ons-icon>
-          </ons-toolbar-button>
-        </ons-if>
-      </div>
-    </ons-toolbar>
+      </ons-if>
+    </div>
+  </ons-toolbar>
 
 
-    <ons-carousel class="carousel" swipeable auto-scroll id="promo">
+  <ons-carousel class="carousel" swipeable auto-scroll id="promo">
+
+  </ons-carousel>
+
+  <div class="food_list">
+    Chicken wiht Rice menus
+    <ons-carousel auto-refresh swipeable overscrollable item-width="110px" class="recomended_list" id="list1">
 
     </ons-carousel>
+  </div>
 
-    <div class="food_list" >
-      Chicken wiht Rice menus
-      <ons-carousel auto-refresh swipeable overscrollable item-width="110px" class="recomended_list" id="list1">
+  <div class="food_list">
+    Only chicken
+    <ons-carousel auto-refresh swipeable overscrollable item-width="110px" id="list2">
 
-      </ons-carousel>
-    </div>
+    </ons-carousel>
+  </div>
 
-    <div class="food_list">
-      Only chicken
-      <ons-carousel auto-refresh swipeable overscrollable item-width="110px" id="list2">
+  <div class="food_list">
+    Hamburger
+    <ons-carousel auto-refresh swipeable overscrollable item-width="110px" id="list3">
+    </ons-carousel>
+  </div>
 
-      </ons-carousel>
-    </div>
-
-    <div class="food_list">
-      Hamburger
-      <ons-carousel auto-refresh swipeable overscrollable item-width="110px" id="list3">
-        <!-- <ons-carousel-item modifier="nodivider" class="food_cover" onclick="openFoodDetails()"> <img
-            src="img/ham1.jpg">
-        </ons-carousel-item>
-        <ons-carousel-item modifier="nodivider" class="food_cover" onclick="openFoodDetails()"> <img
-            src="img/ham2.jpg">
-        </ons-carousel-item>
-        <ons-carousel-item modifier="nodivider" class="food_cover" onclick="openFoodDetails()"> <img
-            src="img/hame3.jpg">
-        </ons-carousel-item>
-        <ons-carousel-item modifier="nodivider" class="food_cover" onclick="openFoodDetails()"> <img
-            src="img/ham4.jpg">
-        </ons-carousel-item>
-        <ons-carousel-item modifier="nodivider" class="food_cover" onclick="openFoodDetails()">
-          <img src="img/ham1.jpg">
-        </ons-carousel-item> -->
-      </ons-carousel>
-    </div>
-
-    <style type="text/css">
-      .carousel ons-carousel-item img {
-        width: 100%;
-        max-height: 190px
-      }
-
-      .cover-label {
-        text-align: center;
-        cursor: default;
-      }
-
-      ul {
-        list-style: none;
-        padding: 0;
-      }
-      .recomended_item {
-        padding-left: 10px;
+  <style type="text/css">
+    .carousel ons-carousel-item img {
+      width: 100%;
+      max-height: 190px
     }
 
-      ul li {
-        display: inline;
-        margin-right: 5px;
-      }
-
-      .thumbnail {
-        width: 120px;
-        height: 120px;
-        display: table;
-        background-color: rgba(0, 0, 0, 0.42);
+    .cover-label {
+      text-align: center;
+      cursor: default;
     }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .recomended_item {
+      padding-left: 10px;
+    }
+
+    ul li {
+      display: inline;
+      margin-right: 5px;
+    }
+
+    .thumbnail {
+      width: 120px;
+      height: 120px;
+      display: table;
+      background-color: rgba(0, 0, 0, 0.42);
+    }
+
     .recomended_list {
-        height: 150px;
+      height: 150px;
     }
 
-      .circle {
-        font-size: 15px;
-        display: table-cell;
-        color: #999;
-      }
+    .circle {
+      font-size: 15px;
+      display: table-cell;
+      color: #999;
+    }
 
-      .circle_current {
-        color: white;
-      }
+    .circle_current {
+      color: white;
+    }
 
-      .food_list {
-        margin: 10px;
-        height: 130px;
-        padding-top: 30px;
-      }
+    .food_list {
+      margin: 10px;
+      height: 130px;
+      padding-top: 30px;
+    }
 
-      .food_list img {
-        width: 90%;
-      }
-    </style>
-  </ons-page>
+    .food_list img {
+      width: 90%;
+    }
+  </style>
+</ons-page>
 </template>
