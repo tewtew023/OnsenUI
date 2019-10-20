@@ -33,10 +33,13 @@
         $.get("Jsontest.json", function (data, status) {
             for (var index in data) {
                 var Res = data[index];
-                db.collection("category").doc(Res.name).set({
+                db.collection("shops").doc(Res.name).set({
                     // id: Res.id,
-                    name: Res.name,
-                    url: Res.url,
+    category: Res.category,
+    category_id:Res.category_id,
+    id:Res.id,
+    name:Res.name,
+    url:Res.url
                 })
             }
             console.log('Done');

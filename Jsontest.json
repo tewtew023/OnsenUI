@@ -1,22 +1,60 @@
 [
     {  
-    "name": "Pizza",
-    "url": "https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Fcategory%2Fpizza.png?alt=media&token=ff526265-79e3-4519-910d-c0b7cf07d2e0"
+        "category": "Steak",
+        "category_id":"st101",
+        "id":1002,
+        "name":"Chester Grill",
+        "url":"https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Fshops%2Fchesterlogo.png?alt=media&token=2bb79ff5-3ea3-4e0a-b835-208d7301e5ef"
+
 },
 { 
-    "name": "Steak",
-    "url": "https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Fcategory%2Fsteak.png?alt=media&token=95992ea7-452c-4f5b-9381-c95ad299a4d6"
+    "category": "Fast Food",
+        "category_id":"ds101",
+        "id":1001,
+        "name":"KFC",
+        "url":"https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Fshops%2FKFC.png?alt=media&token=d79293cf-1b8b-4d62-8ffa-29390c9e9596"
+
+},
+{ 
+    "category": "Dessert",
+        "category_id":"ds101",
+        "id":1003,
+        "name":"Dunkin",
+        "url":"https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Fshops%2FDunkinlogo.png?alt=media&token=daa23ac6-0afd-49b9-9c1a-edb3869b0125"
+
 },
 {
-    "name": "Dessert",
-    "url": "https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Fcategory%2Fdonut.png?alt=media&token=06f8399b-0921-4f90-9303-f5c98d78e13c"
+    "category": "Pizza",
+    "category_id":"pz101",
+    "id":1004,
+    "name":"Pizza hut",
+    "url":"https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Fshops%2Fhutlogo.png?alt=media&token=f61acec7-f220-4d80-a5a1-65bae86eb51a"
+
 },
 { 
-    "name": "A La Carte",
-    "url": "https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Fcategory%2Ffood.png?alt=media&token=dd10830d-7f4f-4e28-a373-ad8f23ca433a"
+    "category": "Fast Food",
+        "category_id":"ff101",
+        "id":1005,
+        "name":"Burger King",
+        "url":"https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Fshops%2FkingLogo.png?alt=media&token=20f01129-8aaf-4389-971a-9a106ee4e3a6"
+
 },
 { 
-    "name": "Drinks",
-    "url": "https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Fcategory%2Fchocolate.png?alt=media&token=c64dbf38-954a-474e-a16d-3a42bdce1256"
+    "category": "Fast Food",
+        "category_id":"ff101",
+        "id":1006,
+        "name":"McDonald",
+        "url":"https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Fshops%2FMcLogo.png?alt=media&token=3ff1aa37-3687-481c-a5da-cc8f2825cd74"
+
+},
+{ 
+    "category": "Dessert",
+        "category_id":"ds101",
+        "id":1006,
+        "name":"Mister Donut",
+        "url":"https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Fshops%2Fmisterlogo.png?alt=media&token=74d1ed57-6d6e-4ffe-ac2b-91074c9de114"
+
 }
+
+
 ]

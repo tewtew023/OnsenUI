@@ -23,7 +23,9 @@ var firebaseConfig = {
 }(jQuery));
 
 
-
+function openShop() {
+  document.querySelector('#myNavigator').pushPage('shop.html');
+}
 function openFoodDetails(id) {
   document.querySelector('#myNavigator').pushPage('food_details.html');
 }
