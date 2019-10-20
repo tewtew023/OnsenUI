@@ -1,137 +1,150 @@
 <ons-page id="food_details">
-    <ons-toolbar>
-      <div class="left">
+  <ons-toolbar>
+    <div class="left">
+      <ons-toolbar-button>
+        <ons-icon icon="fa-chevron-left" id='backbtn' onclick="goBack()"></ons-icon>
+      </ons-toolbar-button>
+      <ons-if platform="android">
         <ons-toolbar-button>
-          <ons-icon icon="fa-chevron-left" id='backbtn' onclick="goBack()"></ons-icon>
+          <ons-icon icon="ion-android-more-vertical"></ons-icon>
         </ons-toolbar-button>
-        <ons-if platform="android">
-          <ons-toolbar-button>
-            <ons-icon icon="ion-android-more-vertical"></ons-icon>
-          </ons-toolbar-button>
-        </ons-if>
-      </div>
-      <div class="center bar">Food detail</div>
-      <div class="right">
+      </ons-if>
+    </div>
+    <div class="center bar">Food detail</div>
+    <div class="right">
+      <ons-toolbar-button>
+        <ons-icon icon="fa-search"></ons-icon>
+      </ons-toolbar-button>
+      <ons-if platform="android">
         <ons-toolbar-button>
-          <ons-icon icon="fa-search"></ons-icon>
+          <ons-icon icon="ion-android-more-vertical"></ons-icon>
         </ons-toolbar-button>
-        <ons-if platform="android">
-          <ons-toolbar-button>
-            <ons-icon icon="ion-android-more-vertical"></ons-icon>
-          </ons-toolbar-button>
-        </ons-if>
-      </div>
-    </ons-toolbar>
-
-
-    <div class="trailer">
-      <img src="img/det1.jpg">
+      </ons-if>
     </div>
-
-    <div class="food_info">
-      <h2 id="food_title"></h2>
-      <ons-row class="food_general_info">
-        <ons-col class="stars">
-          <ons-icon style="color: yellow" icon="fa-star"></ons-icon>
-          <ons-icon style="color: yellow" icon="fa-star"></ons-icon>
-          <ons-icon style="color: yellow" icon="fa-star"></ons-icon>
-          <ons-icon style="color: yellow" icon="fa-star"></ons-icon>
-          <ons-icon style="color: gray" icon="fa-star"></ons-icon>
-        </ons-col>
-        <ons-col>Kathu</ons-col>
-        <ons-col>Kathu</ons-col>
-        <ons-col>Phuket</ons-col>
-      </ons-row>
-      <div class="food_synopsis">
-        ข้าวไก่เชสเตอ'ส์ ซอสน้ำปลา พร้อม ข้าวหมูนุ่มซอสน้ำปลา ที่หนึ่งแห่งควาอร่อย ราคาคุ้มค่า พลาดไปมีเสียใจ
-        ในราคาแน่ 170 บาท เท่านั้น งานนี้พลาดไม่ได้แล้ว เชสเตอ'ส์ ชื่อนี้มีแต่ความอร่อย
-        กดสั่งเลย ! </div>
-
-      <ons-row class="food_extra_buttons">
-        <ons-button modifier="large" style="background-color: green" onclick="openPayment()">
-          <div>Buy</div>
-        </ons-button>
-
-      </ons-row>
-    </div>
+  </ons-toolbar>
 
 
-    <style type="text/css">
-      .trailer {
-        height: 190px;
-        position: relative;
-      }
+  <div class="trailer">
+    <img src="img/det1.jpg">
+  </div>
 
-      .trailer img {
-        width: 100%;
-        height: 100%
-      }
+  <div class="food_info">
+    <h2 id="food_title"></h2>
+    <ons-row class="food_general_info">
+      <ons-col class="stars">
+        <ons-icon style="color: yellow" icon="fa-star"></ons-icon>
+        <ons-icon style="color: yellow" icon="fa-star"></ons-icon>
+        <ons-icon style="color: yellow" icon="fa-star"></ons-icon>
+        <ons-icon style="color: yellow" icon="fa-star"></ons-icon>
+        <ons-icon style="color: gray" icon="fa-star"></ons-icon>
+      </ons-col>
+      <ons-col>Kathu</ons-col>
+      <ons-col>Kathu</ons-col>
+      <ons-col>Phuket</ons-col>
+    </ons-row>
+    <div class="food_synopsis">
+      ข้าวไก่เชสเตอ'ส์ ซอสน้ำปลา พร้อม ข้าวหมูนุ่มซอสน้ำปลา ที่หนึ่งแห่งควาอร่อย ราคาคุ้มค่า พลาดไปมีเสียใจ
+      ในราคาแน่ 170 บาท เท่านั้น งานนี้พลาดไม่ได้แล้ว เชสเตอ'ส์ ชื่อนี้มีแต่ความอร่อย
+      กดสั่งเลย ! </div>
+      <ons-row>
+    <ons-col class="food_extra_buttons">
+      <ons-button modifier="large" style="background-color: green" id="add">
+        <div>ADD</div>
+    </ons-col>
+    <ons-col class="food_extra_buttons">
+    <ons-button modifier="large" style="background-color: red" id="remove">
+      <div>REMOVE</div>
+    </ons-button>
+    </ons-col>
+  </ons-row>
+  </div>
 
-      .trailer ons-icon {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        font-size: 50px;
-        margin-top: -25px;
-        margin-left: -25px;
-        color: #666;
-        background: white;
-        width: 50px;
-        text-align: center;
-        border-radius: 50%;
-        opacity: 0.7;
-      }
 
-      .trailer ons-icon:active {
-        opacity: 1;
-      }
+  <ons-button class="conf" modifier="large" style="background-color: green " onclick="openPayment()" id="conftext">
+    Confirm order(s)</ons-button>
 
-      .trailer_toolbar {
-        position: absolute;
-      }
+  <style type="text/css">
+    .trailer {
+      height: 190px;
+      position: relative;
+    }
 
-      .food_info {
-        padding: 0px 10px;
-        font-size: 14px;
-      }
+    .trailer img {
+      width: 100%;
+      height: 100%
+    }
 
-      .food_general_info {
-        width: 250px;
-        margin-bottom: 15px;
-        color: gray;
-      }
+    .conf {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
 
-      .food_synopsis {
-        text-align: justify;
-        margin-bottom: 10px;
-      }
+    .trailer ons-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-size: 50px;
+      margin-top: -25px;
+      margin-left: -25px;
+      color: #666;
+      background: white;
+      width: 50px;
+      text-align: center;
+      border-radius: 50%;
+      opacity: 0.7;
+    }
 
-      .food_cast {
-        color: gray;
-      }
+    .trailer ons-icon:active {
+      opacity: 1;
+    }
 
-      .stars {
-        white-space: nowrap;
-        margin-right: 15px
-      }
+    .trailer_toolbar {
+      position: absolute;
+    }
 
-      .food_extra_buttons {
-        margin-top: 20px;
-        width: 50%;
-      }
+    .food_info {
+      padding: 0px 10px;
+      font-size: 14px;
+    }
 
-      .food_extra_buttons ons-icon {
-        font-size: 25px;
-      }
+    .food_general_info {
+      width: 250px;
+      margin-bottom: 15px;
+      color: gray;
+    }
 
-      .food_extra_buttons ons-button {
-        text-align: center;
-        color: white;
-        font-size: 14px;
-      }
+    .food_synopsis {
+      text-align: justify;
+      margin-bottom: 10px;
+    }
 
-      .food_extra_buttons ons-button:active {
-        color: #96003c;
-      }
-    </style>
-  </ons-page>
+    .food_cast {
+      color: gray;
+    }
+
+    .stars {
+      white-space: nowrap;
+      margin-right: 15px
+    }
+
+    .food_extra_buttons {
+      margin-top: 20px;
+      width: 50%;
+    }
+
+    .food_extra_buttons ons-icon {
+      font-size: 25px;
+    }
+
+    .food_extra_buttons ons-button {
+      text-align: center;
+      color: white;
+      font-size: 14px;
+    }
+
+    .food_extra_buttons ons-button:active {
+      color: #96003c;
+    }
+  </style>
+</ons-page>

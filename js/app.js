@@ -31,7 +31,11 @@ function openHome() {
   document.querySelector('#myNavigator').pushPage('home.html');
 }
 function goBack() {
+  try{
   document.querySelector('#myNavigator').popPage()
+}catch (err){
+  document.querySelector('#myNavigator').pushPage('rec.html');
+}
 }
 function openLogin() {
   document.querySelector('#myNavigator').pushPage('pagelogin.html');
@@ -115,7 +119,7 @@ document.addEventListener('init', function (event) {
         console.log(`${doc.data().id} => ${doc.data().name}`);
         var id = `${doc.data().id}`
         console.log(id);
-        var item = `<ons-carousel-item modifier="nodivider" class="recomended_item">
+        var item = `<ons-carousel-item modifier="nodivider" class="recomended_item" onclick="openFoodDetails(1)">
         <img src="${doc.data().url}">
         <div class="recomended_item_title" id="item1_${doc.data().id}">${doc.data().name}</div>
         </ons-carousel-item>`;
@@ -200,7 +204,7 @@ document.addEventListener('init', function (event) {
     console.log("menuPage");
 
     $("#login").click(function () {
-      $("#content")[0].load("login.html");
+      $("#content")[0].load("pagelogin.html");
       $("#sidemenu")[0].close();
     });
 
@@ -239,7 +243,52 @@ document.addEventListener('init', function (event) {
 
   }
 
-  // end rec page
+// end rec page
+
+
+// start detail
+if (page.id === 'food_details') {
+  console.log('fdetails page');
+  var conft = "";
+  var order_count=0;
+   $('#add').click(function() {
+     order_count+=1;
+     conft='Confirm oder(s) : '+order_count;
+     $('#conftext').empty();
+     $('#conftext').append(conft);
+   });
+
+   $('#remove').click(function() {
+    order_count-=1;
+    conft='Confirm oder(s) : '+order_count;
+    if(order_count>=0){$('#conftext').empty();
+    $('#conftext').append(conft);}else{
+      alert('Have no order');
+    }
+
+  });
+
+
+  // db.collection("category").get().then((querySnapshot) => {
+  //   querySnapshot.forEach((doc) => {
+  //     console.log(`${doc.data().id} => ${doc.data().name}`);
+  //     var id = `${doc.data().id}`
+  //     console.log(id);
+  //     var item = `<img src="${doc.data().url}" width="120" heigt="120">`;
+
+
+  //     //  $("#promo").append(promo);
+  //     $("#category" + i).append(item);
+  //     i++;
+
+
+
+  //   });
+
+  // });
+
+}
+  //end detail  
 
 
   $('#loguotbtn').click(function () {
