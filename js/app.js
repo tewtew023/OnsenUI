@@ -23,7 +23,7 @@ var firebaseConfig = {
 }(jQuery));
 
 
-function openShop() {
+function openShop(category) {
   document.querySelector('#myNavigator').pushPage('shop.html');
 }
 function openFoodDetails(id) {
@@ -66,12 +66,17 @@ provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
 
 
 
-
+  //create shops card function
+  function createShopcard(url , name){
+ var card =`<ons-card><img src=`+url+`>`+name+`</ons-card>`;
+  return card;
+  };
 
 document.addEventListener('init', function (event) {
   var page = event.target;
   console.log(page.id);
   $('#loguotbtn').invisible();
+
 
 
 
@@ -89,6 +94,7 @@ document.addEventListener('init', function (event) {
       // ...
     }
   });
+
 
 
 
@@ -201,6 +207,8 @@ document.addEventListener('init', function (event) {
 
   }
   //End Login page
+
+
   //start menu page
   if (page.id === 'menuPage') {
     console.log("menuPage");
@@ -291,6 +299,27 @@ if (page.id === 'food_details') {
 
 }
   //end detail  
+
+
+  //start shops
+
+  if (page.id === 'shop') {
+    console.log('shops page');
+      db.collection("shops").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      console.log(`${doc.data().id} => ${doc.data().name}`);
+      var id = `${doc.data().id}`
+      console.log(id);
+      // var item = `<img src="${doc.data().url}" width="120" heigt="120">`;
+     $('#shopcard').append(createShopcard(`${doc.data().url}`,`${doc.data().name}`));
+
+    });
+
+  });
+
+
+}
+  //end shops
 
 
   $('#loguotbtn').click(function () {
