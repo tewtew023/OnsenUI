@@ -1,9 +1,4 @@
-#page1 .page__background {
-    background-image: url(img/green.png);
-  }
-  #page2 .page__background {
-    background-image: url(img/green.png);
-  }
+
  .toolbar{ 
      background-color:grey; 
      padding-right: 15px;

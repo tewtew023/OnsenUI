@@ -24,10 +24,11 @@
   </ons-toolbar>
 
 
-  <div class="trailer">
-    <img src="img/det1.jpg">
+  <ons-card><div class="trailer" id='trailer'>
+    <!-- <img src="img/det1.jpg"> -->
   </div>
-
+</ons-card>
+  <ons-card>
   <div class="food_info">
     <h2 id="food_title"></h2>
     <ons-row class="food_general_info">
@@ -42,10 +43,8 @@
       <ons-col>Kathu</ons-col>
       <ons-col>Phuket</ons-col>
     </ons-row>
-    <div class="food_synopsis">
-      ข้าวไก่เชสเตอ'ส์ ซอสน้ำปลา พร้อม ข้าวหมูนุ่มซอสน้ำปลา ที่หนึ่งแห่งควาอร่อย ราคาคุ้มค่า พลาดไปมีเสียใจ
-      ในราคาแน่ 170 บาท เท่านั้น งานนี้พลาดไม่ได้แล้ว เชสเตอ'ส์ ชื่อนี้มีแต่ความอร่อย
-      กดสั่งเลย ! </div>
+    <div class="food_synopsis" id="detail">
+      </div>
       <ons-row>
     <ons-col class="food_extra_buttons">
       <ons-button modifier="large" style="background-color: green" id="add">
@@ -58,9 +57,9 @@
     </ons-col>
   </ons-row>
   </div>
+</ons-card>
 
-
-  <ons-button class="conf" modifier="large" style="background-color: green " onclick="openPayment()" id="conftext">
+  <ons-button class="conf" modifier="large" style="background-color: green " onclick="openCart()" id="conftext">
     Confirm order(s)</ons-button>
 
   <style type="text/css">

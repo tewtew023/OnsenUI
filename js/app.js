@@ -25,19 +25,26 @@ var firebaseConfig = {
 
 function openShop(category) {
   document.querySelector('#myNavigator').pushPage('shop.html');
+  localStorage.setItem("selectedCategory", category);
+
 }
-function openFoodDetails(id) {
+
+function openFoodDetails(shopid, id) {
   document.querySelector('#myNavigator').pushPage('food_details.html');
+  console.log('shopid =' + shopid)
+  localStorage.setItem("shopID", shopid);
+  localStorage.setItem("foodID", id);
 }
-function openHome() {
+function openHome(id) {
   document.querySelector('#myNavigator').pushPage('home.html');
+  // localStorage.setItem("shopID",id);
 }
 function goBack() {
-  try{
-  document.querySelector('#myNavigator').popPage()
-}catch (err){
-  document.querySelector('#myNavigator').pushPage('rec.html');
-}
+  try {
+    document.querySelector('#myNavigator').popPage()
+  } catch (err) {
+    document.querySelector('#myNavigator').pushPage('rec.html');
+  }
 }
 function openLogin() {
   document.querySelector('#myNavigator').pushPage('pagelogin.html');
@@ -47,6 +54,11 @@ function openSignup() {
 }
 function openPayment() {
   document.querySelector('#myNavigator').pushPage('payment.html');
+}
+function openPayment() {
+  document.querySelector('#myNavigator').pushPage('payment.html');
+} function openCart() {
+  document.querySelector('#myNavigator').pushPage('cart.html');
 }
 function Paysuccess() {
   alert("Your foods are delivering");
@@ -63,23 +75,56 @@ var db = firebase.firestore();
 var provider = new firebase.auth.GoogleAuthProvider();
 provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
 
+localStorage.setItem("ordercount", 0);
+
+//create kart function
+function createCart(name, price, count,url) {
+  var order_card;
+  order_card = `<ons-card><ons-row><ons-col><img src="`+url+`" width="120" heigt="120"></ons-col>
+  <ons-col>Menu : ` + name + `<br>
+Price : `+ price + `</ons-col></ons-row></ons-card>`;
+  var order_cards = "";
+  for (var i = 1; i <= count; i++)
+
+    order_cards = order_cards + order_card;
 
 
+  localStorage.setItem("orderPrice", price)
+  return order_cards;
+}
 
-  //create shops card function
-  function createShopcard(url , name){
- var card =`<ons-card><img src=`+url+`>`+name+`</ons-card>`;
+
+//end create kart
+
+
+//create shops card function
+function createShopcard(url, name, id) {
+  var card = `<ons-card onclick="openHome(` + id + `)"><img src=` + url + `>` + name + `</ons-card>`;
   return card;
-  };
+};
+
 
 document.addEventListener('init', function (event) {
   var page = event.target;
   console.log(page.id);
   $('#loguotbtn').invisible();
+  ///////////////////////////////////////////////////////////////
 
 
+  //create menu function
+  function createMenu(url, name, id, shopID) {
+    var item = '<ons-carousel-item modifier="nodivider" class="recomended_item" onclick="openFoodDetails(' + shopID + ',' + id + ')">' +
+      '<img src="' + url + '">' +
+      '<div class="recomended_item_title" id="item1_' + id + '">' + name + '</div>' +
+      '</ons-carousel-item>';
+    var promo = `<ons-carousel-item modifier="nodivider" class="promo_item">
+ <img src="`+ url + `">
+ </ons-carousel-item>`
+    localStorage.setItem("promoItem", promo);
 
-
+    return item;
+  };
+  ///////////////////////////////////////////////////////////////
 
   //Mornitor authen status
   firebase.auth().onAuthStateChanged(function (user) {
@@ -94,7 +139,6 @@ document.addEventListener('init', function (event) {
       // ...
     }
   });
-
 
 
 
@@ -125,28 +169,18 @@ document.addEventListener('init', function (event) {
     db.collection("chestergrillmenu").get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         console.log(`${doc.data().id} => ${doc.data().name}`);
-        var id = `${doc.data().id}`
-        console.log(id);
-        var item = `<ons-carousel-item modifier="nodivider" class="recomended_item" onclick="openFoodDetails(1)">
-        <img src="${doc.data().url}">
-        <div class="recomended_item_title" id="item1_${doc.data().id}">${doc.data().name}</div>
-        </ons-carousel-item>`;
-        var promo = `<ons-carousel-item modifier="nodivider" class="promo_item">
-        <img src="${doc.data().url}">
-        </ons-carousel-item>`
+        var listid = `${doc.data().list_id}`
+        console.log(listid);
+        var item = createMenu(`${doc.data().url}`, `${doc.data().name}`, `${doc.data().id}`, `${doc.data().shop_id}`);
 
-        if (id <= 106) { $("#list1").append(item); }
-        else if (id <= 110 && id > 106) { $("#list2").append(item); }
-        else if (id > 110 && id < 150) { $("#list3").append(item); }
-        else if (id >= 201) {
-          $("#promo").append(promo);
-
+        if (listid == 1) { $("#list1").append(item); }
+        else if (listid == 2) { $("#list2").append(item); }
+        else if (listid == 3) { $("#list3").append(item); }
+        else if (listid == 4) {
+          item;
+          $("#promo").append(localStorage.getItem("promoItem"));
         }
-
-
-
       });
-      
     });
     $("#menubtn").click(function () {
       console.log('menubtn');
@@ -237,7 +271,7 @@ document.addEventListener('init', function (event) {
         var item = `<img src="${doc.data().url}" width="120" heigt="120">`;
 
 
-        //  $("#promo").append(promo);
+
         $("#category" + i).append(item);
         i++;
 
@@ -253,72 +287,130 @@ document.addEventListener('init', function (event) {
 
   }
 
-// end rec page
+  // end rec page
 
 
-// start detail
-if (page.id === 'food_details') {
-  console.log('fdetails page');
-  var conft = "";
-  var order_count=0;
-   $('#add').click(function() {
-     order_count+=1;
-     conft='Confirm oder(s) : '+order_count;
-     $('#conftext').empty();
-     $('#conftext').append(conft);
-   });
+  // start detail
+  if (page.id === 'food_details') {
+    console.log('fdetails page');
+    var conft = "";
+    var order_count = 0;
 
-   $('#remove').click(function() {
-    order_count-=1;
-    conft='Confirm oder(s) : '+order_count;
-    if(order_count>=0){$('#conftext').empty();
-    $('#conftext').append(conft);}else{
-      alert('Have no order');
+
+
+    var shop_n = "";
+    var shop_id = localStorage.getItem("shopID");
+    var foodID = localStorage.getItem("foodID");
+    console.log('shop ID' + shop_id);
+    console.log('food ID' + foodID);
+    if (shop_id == "1002") {
+      shop_n = "chestergrillmenu";
     }
+    db.collection(shop_n).get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        console.log(`${doc.data().id} => ${doc.data().name}`);
+        var id = `${doc.data().id}`
+        var detail = `${doc.data().details}`
+        var name = `${doc.data().name}`
+        var price = `${doc.data().price}`
+        var url = `${doc.data().url}`
+        var cartItem = '';
+        var item = `<img src="${doc.data().url}" width="120" heigt="120">`;
+        console.log(id);
+        if (id == foodID) {
+          console.log('food id checked')
+          $('#trailer').append(item);
+          $('#detail').append(detail);
 
-  });
+          $('#add').click(function () {
+            order_count += 1;
+            conft = 'Confirm oder(s) : ' + order_count;
+            $('#conftext').empty();
+            $('#conftext').append(conft);
+            //  var amout=createKart(name,price,id,order_count);
+
+            priceInt = parseInt(price);
+            amout = priceInt * order_count;
+            console.log(amout);
+
+            cartItem = createCart(name, price, order_count,url);
+            console.log(cartItem);
+            localStorage.setItem("cartItem", cartItem);
+            localStorage.setItem("amout",amout);
+          });
+
+          $('#remove').click(function () {
+            order_count -= 1;
+            amout = priceInt * order_count;
+            console.log(order_count);
+            if (order_count >= 0) {
+              $('#conftext').empty();
+              conft = 'Confirm oder(s) : ' + order_count;
+              $('#conftext').append(conft);
+            } else {
+              order_count = 0;
+              amout = priceInt * order_count;
+              conft = 'Confirm oder(s) : ' + order_count + '';
+              alert('Have no order');
+            }
+            console.log(amout);
+            cartItem = createCart(name, price, order_count,url);
+            console.log(cartItem);
+            localStorage.setItem("cartItem", cartItem);
+            localStorage.setItem("amout",amout);
+          });
 
 
-  // db.collection("category").get().then((querySnapshot) => {
-  //   querySnapshot.forEach((doc) => {
-  //     console.log(`${doc.data().id} => ${doc.data().name}`);
-  //     var id = `${doc.data().id}`
-  //     console.log(id);
-  //     var item = `<img src="${doc.data().url}" width="120" heigt="120">`;
+        }
 
 
-  //     //  $("#promo").append(promo);
-  //     $("#category" + i).append(item);
-  //     i++;
+      });
 
+    });
 
-
-  //   });
-
-  // });
-
-}
+  }
   //end detail  
+
+
+  //start cart page
+
+ // start detail
+ if (page.id === 'cart') {
+  var amout = localStorage.getItem("amout"); 
+  console.log('Cart page');
+ var card=  localStorage.getItem("cartItem");
+ console.log('card'+card);
+  $('#cartCard').append(card);
+}
+
+var confbtn =  `<ons-button class="conf" modifier="large" style="background-color: green " onclick="openPayment()" id="conftext">Amout: `+amout+`THB</ons-button>`
+$('#cart').append(confbtn);
+
+  //end cart
+
 
 
   //start shops
 
   if (page.id === 'shop') {
     console.log('shops page');
-      db.collection("shops").get().then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-      console.log(`${doc.data().id} => ${doc.data().name}`);
-      var id = `${doc.data().id}`
-      console.log(id);
-      // var item = `<img src="${doc.data().url}" width="120" heigt="120">`;
-     $('#shopcard').append(createShopcard(`${doc.data().url}`,`${doc.data().name}`));
+    db.collection("shops").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        console.log(`${doc.data().id} => ${doc.data().name}`);
+        var id = `${doc.data().id}`
+
+        var category = localStorage.getItem("selectedCategory");
+        console.log(category);
+        if (category === `${doc.data().category_id}`) {
+          $('#shopcard').append(createShopcard(`${doc.data().url}`, `${doc.data().name}`, `${doc.data().id}`));
+        }
+      });
 
     });
+  }
 
-  });
 
 
-}
   //end shops
 
 
