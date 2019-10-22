@@ -33,13 +33,22 @@
         $.get("Jsontest.json", function (data, status) {
             for (var index in data) {
                 var Res = data[index];
-                db.collection("shops").doc(Res.name).set({
+                db.collection("1001").doc(Res.name).set({
                     // id: Res.id,
-    category: Res.category,
-    category_id:Res.category_id,
+    details: Res.details,
     id:Res.id,
     name:Res.name,
+    price:Res.price,
+    shop_id:Res.shop_id,
     url:Res.url
+    // "details": " อวอร์ดวอเตอร์พาสตา ดัมพ์ แป๋วซีเนียร์สมิติเวชพุทธภูมิ คอนแท็ค เมเปิลไฮแจ็ค เคลียร์อีสต์สเตชันเพียวอัลบั้ม เทรนด์สามช่า ผิดพลาดกุนซือคาร์โก้ ด็อกเตอร์ปอดแหกแฟลช ซี้ จุ๊ย สุนทรีย์ เพลซศึกษาศาสตร์มั้งยูโร ฮิปฮอปแครอทเทคโนแครตหลวงตา ยูโรตัวเองบุ๋น โปรเจ็คท์ซาดิสต์",
+    //     "id": 3103,
+    //     "list_id": 1,
+    //     "name": "ทวิสต์",
+    //     "price": 25,
+    //     "shop_id": "1003",
+    //     "url": "https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Ffoods%2Fdkdonut%2F3.jpg?alt=media&token=cc28298f-95c5-4366-97b5-c1907884d884"
+ 
                 })
             }
             console.log('Done');

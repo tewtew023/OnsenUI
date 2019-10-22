@@ -23,10 +23,10 @@ var firebaseConfig = {
 }(jQuery));
 
 
-function openShop(category) {
+function openShop(category,url) {
   document.querySelector('#myNavigator').pushPage('shop.html');
   localStorage.setItem("selectedCategory", category);
-
+  localStorage.setItem("catepic", url);
 }
 
 function openFoodDetails(shopid, id) {
@@ -35,19 +35,26 @@ function openFoodDetails(shopid, id) {
   localStorage.setItem("shopID", shopid);
   localStorage.setItem("foodID", id);
 }
-function openHome(id) {
+function delivered(){
+  ons.notification.toast(' Your Food will be arrive soon. Thank you!', { timeout: 1000, animation: 'fall' })
+}
+function openHome(id,url) {
   document.querySelector('#myNavigator').pushPage('home.html');
-  // localStorage.setItem("shopID",id);
+  localStorage.setItem("shopID",id);
+  localStorage.setItem("shopUrl",url);
 }
 function goBack() {
   try {
     document.querySelector('#myNavigator').popPage()
   } catch (err) {
-    document.querySelector('#myNavigator').pushPage('rec.html');
+
   }
 }
+function openRec(){
+ $("#content")[0].load("rec.html")
+}
 function openLogin() {
-  document.querySelector('#myNavigator').pushPage('pagelogin.html');
+  $("#content")[0].load("pagelogin.html")
 }
 function openSignup() {
   document.querySelector('#myNavigator').pushPage('register.html');
@@ -99,7 +106,14 @@ Price : `+ price + `</ons-col></ons-row></ons-card>`;
 
 //create shops card function
 function createShopcard(url, name, id) {
-  var card = `<ons-card onclick="openHome(` + id + `)"><img src=` + url + `>` + name + `</ons-card>`;
+  var card = `<ons-card onclick="openHome(${id},'${url}')"> 
+  <div class="content">
+  <ons-row>
+  <ons-col><img src="` + url + `"></ons-col><ons-col></ons-col>
+  <ons-col class="right">` + name + `</ons-col>
+  </ons-row>
+  </div>
+  </ons-card>`;
   return card;
 };
 
@@ -112,15 +126,18 @@ document.addEventListener('init', function (event) {
 
 
   //create menu function
-  function createMenu(url, name, id, shopID) {
-    var item = '<ons-carousel-item modifier="nodivider" class="recomended_item" onclick="openFoodDetails(' + shopID + ',' + id + ')">' +
-      '<img src="' + url + '">' +
+  function createMenu(url, name, id, shopID,price) {
+    var item = '<ons-list-item  class="recomended_item" onclick="openFoodDetails(' + shopID + ',' + id + ')">' +
+      '<img src="' + url + '" width="120" heigt="120">' +
       '<div class="recomended_item_title" id="item1_' + id + '">' + name + '</div>' +
-      '</ons-carousel-item>';
-    var promo = `<ons-carousel-item modifier="nodivider" class="promo_item">
- <img src="`+ url + `">
- </ons-carousel-item>`
-    localStorage.setItem("promoItem", promo);
+      '<div class="right">' + price + '-.</div>' 
+      '</ons-list-item>';
+
+
+//     var promo = `<ons-carousel-item modifier="nodivider" class="promo_item">
+//  <img src="`+ url + `">
+//  </ons-carousel>`
+//     localStorage.setItem("promoItem", promo);
 
     return item;
   };
@@ -139,6 +156,115 @@ document.addEventListener('init', function (event) {
       // ...
     }
   });
+
+
+
+
+
+
+
+
+
+  //start reccommended page
+
+  if (page.id === 'rec') {
+    var i = 1;
+    console.log('rec page');
+    db.collection("category").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        console.log(`${doc.data().id} => ${doc.data().name}`);
+        var id = doc.data().category_id
+        var url= doc.data().url
+        console.log(id);
+        console.log(url);
+        var item = `<img src="${url}" width="120" heigt="120" onclick="openShop('${id}','${url}')">`;
+        $("#category" + i).append(item);
+        i++;
+
+
+      });
+
+    });
+    db.collection("shops").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        var url= doc.data().url
+        var carouselitem = `<ons-carousel-item>
+        <img src="${url}" width="120px">
+        </ons-carousel-item>`;
+
+        $("#recItem").append(carouselitem);
+
+
+      });
+
+    });
+    $("#menubtn").click(function () {
+      $("#sidemenu")[0].open();
+    });
+
+  }
+
+  // end rec page
+
+  
+
+  //start shops
+
+  if (page.id === 'shop') {
+    console.log('shops page');
+    db.collection("shops").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        console.log(`${doc.data().id} => ${doc.data().name}`);
+        var id = `${doc.data().id}`
+
+        var category = localStorage.getItem("selectedCategory");
+        console.log(category);
+        if (category === `${doc.data().category_id}`) {
+          $('#shopcard').append(createShopcard(`${doc.data().url}`, `${doc.data().name}`, `${doc.data().id}`));
+        }
+
+      });
+
+    });
+  }
+
+
+
+  //end shops
+
+
+    //start home page
+    if (page.id === 'home') {
+      console.log('home');
+      var shop_id = localStorage.getItem("shopID");
+      var shopUrl = localStorage.getItem("shopUrl");
+       $('#showImgCard').append(`<img src="`+shopUrl+`" class= "center">`);
+      console.log('shop ID' + shop_id);
+      if (shop_id == "1002") {
+        shop_id = "chestergrillmenu";
+      }
+      db.collection(shop_id).get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          console.log(`${doc.data().id} => ${doc.data().name}`);
+          var listid = `${doc.data().list_id}`
+          console.log(listid);
+          var item = createMenu(`${doc.data().url}`,`${doc.data().name}`, `${doc.data().id}`, `${doc.data().shop_id}`,`${doc.data().price}`);
+             $("#list").append(item);
+           
+        });
+      });
+      $("#menubtn").click(function () {
+        console.log('menubtn');
+        $("#sidemenu")[0].open();
+      });
+  
+    }
+    //end home page
+
+
+
+
+
 
 
 
@@ -163,32 +289,7 @@ document.addEventListener('init', function (event) {
 
   //End Register page
 
-  //start home page
-  if (page.id === 'home') {
-    console.log('home');
-    db.collection("chestergrillmenu").get().then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        console.log(`${doc.data().id} => ${doc.data().name}`);
-        var listid = `${doc.data().list_id}`
-        console.log(listid);
-        var item = createMenu(`${doc.data().url}`, `${doc.data().name}`, `${doc.data().id}`, `${doc.data().shop_id}`);
 
-        if (listid == 1) { $("#list1").append(item); }
-        else if (listid == 2) { $("#list2").append(item); }
-        else if (listid == 3) { $("#list3").append(item); }
-        else if (listid == 4) {
-          item;
-          $("#promo").append(localStorage.getItem("promoItem"));
-        }
-      });
-    });
-    $("#menubtn").click(function () {
-      console.log('menubtn');
-      $("#sidemenu")[0].open();
-    });
-
-  }
-  //end home page
 
 
   //Start Login page
@@ -196,7 +297,9 @@ document.addEventListener('init', function (event) {
     $('#signed-in').click(function () {
       var email = $("#email").val();
       var pwd = $('#pwd').val();
-      firebase.auth().signInWithEmailAndPassword(email, pwd).catch(function (error) {
+      firebase.auth().signInWithEmailAndPassword(email, pwd).then(function(){
+        openRec();
+      }).catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
@@ -205,8 +308,6 @@ document.addEventListener('init', function (event) {
         } else {
           alert(errorMessage);
         }
-
-
       });
     });
 
@@ -253,41 +354,13 @@ document.addEventListener('init', function (event) {
     });
 
     $("#home").click(function () {
-      $("#content")[0].load("home.html");
+      $("#content")[0].load("rec.html");
       $("#sidemenu")[0].close();
     });
   }
   //end menu
-  //start reccommended page
-
-  if (page.id === 'rec') {
-    var i = 1;
-    console.log('rec page');
-    db.collection("category").get().then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        console.log(`${doc.data().id} => ${doc.data().name}`);
-        var id = `${doc.data().id}`
-        console.log(id);
-        var item = `<img src="${doc.data().url}" width="120" heigt="120">`;
 
 
-
-        $("#category" + i).append(item);
-        i++;
-
-
-
-      });
-
-    });
-
-    $("#menubtn").click(function () {
-      $("#sidemenu")[0].open();
-    });
-
-  }
-
-  // end rec page
 
 
   // start detail
@@ -304,9 +377,9 @@ document.addEventListener('init', function (event) {
     console.log('shop ID' + shop_id);
     console.log('food ID' + foodID);
     if (shop_id == "1002") {
-      shop_n = "chestergrillmenu";
+      shop_id = "chestergrillmenu";
     }
-    db.collection(shop_n).get().then((querySnapshot) => {
+    db.collection(shop_id).get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         console.log(`${doc.data().id} => ${doc.data().name}`);
         var id = `${doc.data().id}`
@@ -322,6 +395,7 @@ document.addEventListener('init', function (event) {
           $('#trailer').append(item);
           $('#detail').append(detail);
 
+          priceInt = parseInt(price);
           $('#add').click(function () {
             order_count += 1;
             conft = 'Confirm oder(s) : ' + order_count;
@@ -329,7 +403,6 @@ document.addEventListener('init', function (event) {
             $('#conftext').append(conft);
             //  var amout=createKart(name,price,id,order_count);
 
-            priceInt = parseInt(price);
             amout = priceInt * order_count;
             console.log(amout);
 
@@ -383,35 +456,12 @@ document.addEventListener('init', function (event) {
   $('#cartCard').append(card);
 }
 
-var confbtn =  `<ons-button class="conf" modifier="large" style="background-color: green " onclick="openPayment()" id="conftext">Amout: `+amout+`THB</ons-button>`
+var confbtn =  `<ons-button class="conf" modifier="large" style="background-color: green " onclick="delivered()" id="conftext">Amout: `+amout+`THB</ons-button>`
 $('#cart').append(confbtn);
 
   //end cart
 
 
-
-  //start shops
-
-  if (page.id === 'shop') {
-    console.log('shops page');
-    db.collection("shops").get().then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        console.log(`${doc.data().id} => ${doc.data().name}`);
-        var id = `${doc.data().id}`
-
-        var category = localStorage.getItem("selectedCategory");
-        console.log(category);
-        if (category === `${doc.data().category_id}`) {
-          $('#shopcard').append(createShopcard(`${doc.data().url}`, `${doc.data().name}`, `${doc.data().id}`));
-        }
-      });
-
-    });
-  }
-
-
-
-  //end shops
 
 
   $('#loguotbtn').click(function () {

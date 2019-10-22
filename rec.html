@@ -11,48 +11,56 @@
         <ons-icon icon="fa-user-circle" class=" bar" onclick="openLogin()"></ons-icon>
       </ons-toolbar-button>
     </div>
-  </ons-toolbar>
+  </ons-toolbar><ons-card>
+  <ons-carousel id="recItem" auto-refresh swipeable overscrollable item-width="150px">
 
+</ons-carousel> 
+</ons-card>
   <div style="margin: 20px auto 5px; text-align: center; color:azure; -webkit-text-stroke-width: medium">Hungry?
     Take
     some food !</div>
-
+    <ons-card>
   <ons-row class="category_cover">
-    <ons-col onclick="openShop()">
+    <ons-col>
       <div class="category_thumbnail" style="background-color: #dd6218" id="category1">
       </div>
-      <div class="category">A la carte</div>
+      <div class="category">Steak</div>
     </ons-col>
-    <ons-col onclick="openShop('ds101')">
+    <ons-col >
       <div class="category_thumbnail" style="background-color: #00a899" id="category2">
       </div>
       <div class="category">Dessert</div>
     </ons-col>
   </ons-row>
   <ons-row class="category_cover">
-    <ons-col onclick="openShop('dr101')">
+    <!-- <ons-col onclick="openShop('dr101')"> -->
+        <ons-col>
       <div class="category_thumbnail" style="background-color: #e3aa05" id="category3">
       </div>
       <div class="category">Drinks</div>
     </ons-col>
-    <ons-col onclick="openShop('ff101')">
+    <!-- <ons-col onclick="openShop('ff101')"> -->
+        <ons-col >
       <div class="category_thumbnail" style="background-color: #94b052" id="category4">
       </div>
       <div class="category">Fast Food</div>
     </ons-col>
-    <ons-col onclick="openShop('pz101')">
+    <!-- <ons-col onclick="openShop('pz101')"> -->
+        <ons-col>
       <div class="category_thumbnail" style="background-color: #dea5a4" id="category5">
       </div>
       <div class="category">Pizza</div>
     </ons-col>
-    <ons-col onclick="openShop('st101')">
+    <!-- <ons-col onclick="openShop('st101')">-->
+       <ons-col>
       <div class="category_thumbnail" style="background-color: #b19cd9" id="category6">
       </div>
-      <div class="category">Steak</div>
+      <div class="category">A La Carte</div>
     </ons-col>
   </ons-row>
   <ons-row class="category_cover">
   </ons-row>
+</ons-card>
 
   <style type="text/css">
     .category_cover {
@@ -62,7 +70,7 @@
 
     .category {
       text-align: center;
-      color: white;
+      color: black;
       width: 100%;
       font-size: 12px;
       margin-top: 5px;

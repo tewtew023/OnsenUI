@@ -1,60 +1,42 @@
 [
-    {  
-        "category": "Steak",
-        "category_id":"st101",
-        "id":1002,
-        "name":"Chester Grill",
-        "url":"https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Fshops%2Fchesterlogo.png?alt=media&token=2bb79ff5-3ea3-4e0a-b835-208d7301e5ef"
-
-},
-{ 
-    "category": "Fast Food",
-        "category_id":"ds101",
-        "id":1001,
-        "name":"KFC",
-        "url":"https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Fshops%2FKFC.png?alt=media&token=d79293cf-1b8b-4d62-8ffa-29390c9e9596"
-
-},
-{ 
-    "category": "Dessert",
-        "category_id":"ds101",
-        "id":1003,
-        "name":"Dunkin",
-        "url":"https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Fshops%2FDunkinlogo.png?alt=media&token=daa23ac6-0afd-49b9-9c1a-edb3869b0125"
-
-},
-{
-    "category": "Pizza",
-    "category_id":"pz101",
-    "id":1004,
-    "name":"Pizza hut",
-    "url":"https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Fshops%2Fhutlogo.png?alt=media&token=f61acec7-f220-4d80-a5a1-65bae86eb51a"
-
-},
-{ 
-    "category": "Fast Food",
-        "category_id":"ff101",
-        "id":1005,
-        "name":"Burger King",
-        "url":"https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Fshops%2FkingLogo.png?alt=media&token=20f01129-8aaf-4389-971a-9a106ee4e3a6"
-
-},
-{ 
-    "category": "Fast Food",
-        "category_id":"ff101",
-        "id":1006,
-        "name":"McDonald",
-        "url":"https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Fshops%2FMcLogo.png?alt=media&token=3ff1aa37-3687-481c-a5da-cc8f2825cd74"
-
-},
-{ 
-    "category": "Dessert",
-        "category_id":"ds101",
-        "id":1006,
-        "name":"Mister Donut",
-        "url":"https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Fshops%2Fmisterlogo.png?alt=media&token=74d1ed57-6d6e-4ffe-ac2b-91074c9de114"
-
-}
-
-
+    {
+        "details": "ป๋อหลอโปรโมชั่น ทริปไนน์สเตอริโอ แซนด์วิชแหวว แบล็กดีพาร์ตเมนต์ อิกัวนาคาเฟ่ปัจฉิมนิเทศโชว์รูม เซ็นเตอร์จอหงวนโก๊ะอีสเตอร์ช็อป อ่อนด้อยทัวร์นาเมนท์ซาบะศึกษาศาสตร์ฟลุก โลชั่นเห่ย บร็อกโคลีจังโก้ คณาญาติเที่ยงวัน ตุ๋ยธรรมาภิบาลแจม แคนูบร็อคโคลีโซลาร์แตงกวาโทรโข่ง",
+        "id": 2101,
+        "name": "สเต็กหมูนุ่มพริกไทยดำ",
+        "price": 99,
+        "shop_id": "1001",
+        "url": "https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Ffoods%2Floongyai%2F1.jpg?alt=media&token=f8bfdc92-609f-42b8-8468-26eca505e36c"
+    },
+    {
+        "details": "ป๋อหลอโปรโมชั่น ทริปไนน์สเตอริโอ แซนด์วิชแหวว แบล็กดีพาร์ตเมนต์ อิกัวนาคาเฟ่ปัจฉิมนิเทศโชว์รูม เซ็นเตอร์จอหงวนโก๊ะอีสเตอร์ช็อป อ่อนด้อยทัวร์นาเมนท์ซาบะศึกษาศาสตร์ฟลุก โลชั่นเห่ย บร็อกโคลีจังโก้ คณาญาติเที่ยงวัน ตุ๋ยธรรมาภิบาลแจม แคนูบร็อคโคลีโซลาร์แตงกวาโทรโข่ง",
+        "id": 2102,
+        "name": "สเต็กพอร์คชอร์พพริกไทยดำ",
+        "price": 120,
+        "shop_id": "1001",
+        "url": "https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Ffoods%2Floongyai%2F2.jpg?alt=media&token=95b19468-fedb-46b5-9490-31590d3579fd"
+    },
+    {
+        "details": "ป๋อหลอโปรโมชั่น ทริปไนน์สเตอริโอ แซนด์วิชแหวว แบล็กดีพาร์ตเมนต์ อิกัวนาคาเฟ่ปัจฉิมนิเทศโชว์รูม เซ็นเตอร์จอหงวนโก๊ะอีสเตอร์ช็อป อ่อนด้อยทัวร์นาเมนท์ซาบะศึกษาศาสตร์ฟลุก โลชั่นเห่ย บร็อกโคลีจังโก้ คณาญาติเที่ยงวัน ตุ๋ยธรรมาภิบาลแจม แคนูบร็อคโคลีโซลาร์แตงกวาโทรโข่ง",
+        "id": 2103,
+        "name": "สเต็กไก่ดั้งเดิม",
+        "price": 80,
+        "shop_id": "1001",
+        "url": "https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Ffoods%2Floongyai%2F3.jpg?alt=media&token=109aff8a-83eb-4f4f-b19f-21a7f55ec157"
+    },
+    {
+        "details": "ป๋อหลอโปรโมชั่น ทริปไนน์สเตอริโอ แซนด์วิชแหวว แบล็กดีพาร์ตเมนต์ อิกัวนาคาเฟ่ปัจฉิมนิเทศโชว์รูม เซ็นเตอร์จอหงวนโก๊ะอีสเตอร์ช็อป อ่อนด้อยทัวร์นาเมนท์ซาบะศึกษาศาสตร์ฟลุก โลชั่นเห่ย บร็อกโคลีจังโก้ คณาญาติเที่ยงวัน ตุ๋ยธรรมาภิบาลแจม แคนูบร็อคโคลีโซลาร์แตงกวาโทรโข่ง",
+        "id": 2104,
+        "name": "สเต็กไก่คริสปี้อบชีส",
+        "price": 79,
+        "shop_id": "1001",
+        "url": "https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Ffoods%2Floongyai%2F4.jpg?alt=media&token=51e1be38-26da-49f5-b973-762954c8a09b"
+    },
+    {
+        "details": "ป๋อหลอโปรโมชั่น ทริปไนน์สเตอริโอ แซนด์วิชแหวว แบล็กดีพาร์ตเมนต์ อิกัวนาคาเฟ่ปัจฉิมนิเทศโชว์รูม เซ็นเตอร์จอหงวนโก๊ะอีสเตอร์ช็อป อ่อนด้อยทัวร์นาเมนท์ซาบะศึกษาศาสตร์ฟลุก โลชั่นเห่ย บร็อกโคลีจังโก้ คณาญาติเที่ยงวัน ตุ๋ยธรรมาภิบาลแจม แคนูบร็อคโคลีโซลาร์แตงกวาโทรโข่ง",
+        "id": 2105,
+        "name": "สเต็กปลาดอรี่",
+        "price": 99,
+        "shop_id": "1001",
+        "url": "https://firebasestorage.googleapis.com/v0/b/food-first-b91f2.appspot.com/o/img%2Ffoods%2Floongyai%2F5.jpg?alt=media&token=c08b6920-c276-4347-8924-df49c2b23926"
+    }
 ]
