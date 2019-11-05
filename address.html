@@ -1,0 +1,26 @@
+<ons-page id="cart">
+    <ons-toolbar>
+        <div class="left">
+            <ons-toolbar-button>
+                <ons-icon icon="fa-chevron-left" id='backbtn' onclick="goBack()"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+        <div class="center bar" id='bar'>Cart</div>
+        <div class="right">
+            <ons-toolbar-button>
+                <ons-icon icon="fa-search"></ons-icon>
+            </ons-toolbar-button>
+            <ons-if platform="android">
+                <ons-toolbar-button>
+                    <ons-icon icon="ion-android-more-vertical"></ons-icon>
+                </ons-toolbar-button>
+            </ons-if>
+        </div>
+    </ons-toolbar>
+    <ons-carousel class="carousel" swipeable auto-scroll >
+    </ons-carousel>
+    <span id="cartCard">
+
+    <style type="text/css">
+    </style>
+</ons-page>
