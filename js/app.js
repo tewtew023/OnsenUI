@@ -460,8 +460,18 @@ var confbtn =  `<ons-button class="conf" modifier="large" style="background-colo
 $('#cart').append(confbtn);
 
   //end cart
-
-
+  //start address
+  if (page.id === 'address') {
+    mapboxgl.accessToken = 'pk.eyJ1IjoiNjAzMDIxMzAzNiIsImEiOiJjazJsOXp1d3AwNHlzM2RxZTJ4dm84OXl0In0.ad4PjJAGTZ4ibxUzKmi9-w';
+    var map = new mapboxgl.Map({
+    container: 'map', // container id
+    style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+    center: [-74.50, 40], // starting position [lng, lat]
+    zoom: 9 // starting zoom
+    });
+  }
+  
+//end adress
 
 
   $('#loguotbtn').click(function () {
